@@ -1,0 +1,1 @@
+web: gunicorn oshibkarium.wsgi --log-file -
