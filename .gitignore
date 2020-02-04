@@ -1,0 +1,29 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+# Local files
+/psd/
+/log/
+/tmp/
+/www/
+/media/
+*_local.*
+*.sqlite3
+*.pyc
+
+# File system caches
+.DS_Store
+._*
+
+# IDE system files
+.ropeproject
+.vim
+.idea
+.tags
+.env
+*.sublime-workspace
+*.sublime-project
+
+# Temporary files
+*.py[oc]
+*.sw[opn]
+*~
+/*.sqlite3
