@@ -12,6 +12,7 @@ class Relationship(models.Model):
 
 class Card(models.Model):
     title = models.CharField(max_length=200, verbose_name = 'Заголовок')
+    slug = models.CharField(max_length=200, verbose_name = 'Slug')
     category = models.ForeignKey(Category, verbose_name = 'Категория', on_delete=models.CASCADE)
     excerpt = models.TextField(verbose_name = 'Лид')
     description = HTMLField(verbose_name = 'Описание')
