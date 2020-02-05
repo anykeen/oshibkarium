@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <h1>{{ card.title }}</h1>
+        <p>Принадлежит к {{ card.category }}</p>
+        <h4>Описание:</h4>
+        {{ card.description | safe }}
+        <h4>Как с этим справиться:</h4>
+        {{ card.fix | safe }}
+        <h4>Что еще прочесть:</h4>
+        {{ card.info | safe }}
+        <h4>Дополнительные примеры:</h4>
+        {{ card.example | safe }}
+
+        <h4>Родственные ошибки:</h4>
+        {% for related in card.related.all %}<a href="{% url 'card_detail' slug=related.slug %}">{{ related.title }}</a><br/>{% endfor %}
+    </body>
+</html>

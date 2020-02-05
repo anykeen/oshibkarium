@@ -14,6 +14,7 @@ class Card(models.Model):
     title = models.CharField(max_length=200, verbose_name = 'Заголовок')
     slug = models.CharField(max_length=200, verbose_name = 'Slug')
     category = models.ForeignKey(Category, verbose_name = 'Категория', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="dev/null", null=True, blank=True, verbose_name = 'Изображение')
     excerpt = models.TextField(verbose_name = 'Лид')
     description = HTMLField(verbose_name = 'Описание')
     fix = HTMLField(verbose_name = 'Как с этим справиться?')

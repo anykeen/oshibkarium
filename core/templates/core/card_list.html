@@ -1,0 +1,12 @@
+<html>
+    <h1>Категории:</h1>
+    {% for cat in cats %}
+        {{ cat }}
+    {% endfor %}
+    <h1>Карточки:</h1>
+    {% for card in cards %}
+        <h2><a href="{% url 'card_detail' slug=card.slug %}">{{ card.title }}</a></h2>
+        <p>{{ card.excerpt }}</p>
+        <br /><br />
+    {% endfor %}
+</html>
