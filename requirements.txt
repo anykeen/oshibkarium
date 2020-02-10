@@ -4,3 +4,4 @@ gunicorn
 django-tinymce
 Pillow
 django-crispy-forms
+whitenoise
