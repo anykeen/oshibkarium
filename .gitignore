@@ -27,3 +27,4 @@
 *.sw[opn]
 *~
 /*.sqlite3
+*.sqlite3
