@@ -3,3 +3,4 @@ django-heroku
 gunicorn
 django-tinymce
 Pillow
+django-crispy-forms
