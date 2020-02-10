@@ -154,7 +154,7 @@ DEBUG_PROPAGATE_EXCEPTIONS = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+#COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL =  '/'
