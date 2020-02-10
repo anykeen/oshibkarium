@@ -130,7 +130,6 @@ ROOT_DIR = os.path.dirname(BASE_DIR)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
