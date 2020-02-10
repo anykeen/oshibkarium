@@ -2,6 +2,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 
 # Вариант регистрации на базе класса FormView
 class UserRegisterFormView(FormView):
@@ -26,6 +28,7 @@ class UserRegisterFormView(FormView):
         return super(UserRegisterFormView, self).form_invalid(form)
 
 
+@login_required
 def user(request, username):
     user = get_object_or_404(User, username=username)
     return render(request, 'users/account.html', {'user': user})
