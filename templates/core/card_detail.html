@@ -1,17 +1,48 @@
-<html>
-    <body>
-        <h1>{{ card.title }}</h1>
-        <p>Принадлежит к {{ card.category }}</p>
-        <h4>Описание:</h4>
-        {{ card.description | safe }}
-        <h4>Как с этим справиться:</h4>
-        {{ card.fix | safe }}
-        <h4>Что еще прочесть:</h4>
-        {{ card.info | safe }}
-        <h4>Дополнительные примеры:</h4>
-        {{ card.example | safe }}
+{% extends 'base.html' %}
 
-        <h4>Родственные ошибки:</h4>
-        {% for related in card.related.all %}<a href="{% url 'card_detail' slug=related.slug %}">{{ related.title }}</a><br/>{% endfor %}
-    </body>
-</html>
+{% block main %}
+<div class="row mt-5 mb-2">
+    <div class="col-12 col-lg-4">
+        <div class="row">
+            <img class="mx-auto" src="https://picsum.photos/300/300">
+        </div>
+        <div class="row mt-3">
+            <a class="btn btn-primary mx-auto" href="#" role="button">Добавить в мой ошибкариум</a>
+        </div>
+    </div>
+    <div class="col-12 col-lg-8">
+        <h1>{{ card.title }}</h1>
+        <h5 class="text-muted mb-3">{{ card.excerpt }}</h5>
+        {{ card.description | safe }}
+        <h4>Как побороть ошибку?</h4>
+        {{ card.fix | safe }}
+        {% if card.info %}
+        <h4>Что еще прочесть?</h4>
+        {{ card.info | safe }}
+        {% endif %}
+        {% if card.info %}
+        <h4>Дополнительные примеры (потренируйтесь на них)</h4>
+        {{ card.example | safe }}
+        {% endif %}
+    </div>
+</div>
+{% if card.related.all %}
+<div class="row">
+    <h4 class="mx-auto">Родственные ошибки:</h4>
+</div>
+<div class="row mb-5">
+    {% for related in card.related.all %}
+    <div class="col-12 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ related.title }}</h5>
+                <p class="card-text">{{ related.excerpt }}</p>
+                <a href="{% url 'card_detail' slug=related.slug %}" class="card-link">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

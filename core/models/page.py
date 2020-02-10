@@ -3,7 +3,7 @@ from tinymce.models import HTMLField
 
 class Page(models.Model):
     title = models.CharField(max_length=200, verbose_name = 'Заголовок')
-    slug = models.CharField(max_length=200, verbose_name = 'Slug')
+    slug = models.CharField(max_length=200, verbose_name = 'Slug', unique = True)
     content = HTMLField(verbose_name = 'Контент')
 
     class Meta:
