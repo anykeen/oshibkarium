@@ -27,5 +27,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += [
-        re_path(r'^static/(?P<path>.*)$', staticfiles_serve),
+        re_path(r'^staticfiles/(?P<path>.*)$', staticfiles_serve),
     ]
