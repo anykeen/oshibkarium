@@ -1,4 +1,14 @@
-<form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Зарегистрировать">
-</form>
+{% extends  'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Регистрация</h4>
+        <form action="" method="post">{% csrf_token %}
+            {{ form.as_p|crispy }}
+            <input type="submit" class="btn btn-primary btn-block" value="Зарегистрировать">
+        </form>
+    </div>
+</div>
+{% endblock %}
