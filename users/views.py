@@ -31,9 +31,9 @@ class UserRegisterFormView(FormView):
 
 
 @login_required
-def user(request):
+def user(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'users/account.html')
+    return render(request, 'users/account.html', {'username': username})
 
 @login_required
 @transaction.atomic
