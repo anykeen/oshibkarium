@@ -1,4 +1,14 @@
 {% extends 'base.html' %}
 {% block main %}
-<h1>Привет, {{user.username}}</h1>
+<h2>{{ user.get_full_name }}</h2>
+<ul>
+  <li>Username: {{ user.get_username }}</li>
+</ul>
+
+<form method="post">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <button type="submit">Save changes</button>
+  </form>
 {% endblock %}

@@ -30,7 +30,7 @@
                         <ul class="nav mt-2 mt-lg-0">
                             {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="/users/{{ user.username }}/">Личный кабинет</span></a>
+                                <a class="nav-link" href="/accounts/{{ user.get_username }}/">Личный кабинет</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'logout' %}">Выйти</a>

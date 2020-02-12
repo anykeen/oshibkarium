@@ -3,13 +3,15 @@ from django.views.generic.edit import FormView
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from .forms import UserForm
 
 
 # Вариант регистрации на базе класса FormView
 class UserRegisterFormView(FormView):
     # Указажем какую форму мы будем использовать для регистрации наших пользователей, в нашем случае
     # это UserCreationForm - стандартный класс Django унаследованный
-    form_class = UserCreationForm
+    form_class = UserForm
 
     # Ссылка, на которую будет перенаправляться пользователь в случае успешной регистрации.
     # В данном случае указана ссылка на страницу входа для зарегистрированных пользователей.
@@ -29,6 +31,27 @@ class UserRegisterFormView(FormView):
 
 
 @login_required
-def user(request, username):
+def user(request):
     user = get_object_or_404(User, username=username)
-    return render(request, 'users/account.html', {'user': user})
+    return render(request, 'users/account.html')
+
+@login_required
+@transaction.atomic
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UserFormEdit(request.POST, instance=request.user)
+        profile_form = ProfileForm(request.POST, instance=request.user.profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, _('Your profile was successfully updated!'))
+            return redirect('settings:profile')
+        else:
+            messages.error(request, _('Please correct the error below.'))
+    else:
+        user_form = UserFormEdit(instance=request.user)
+        profile_form = ProfileForm(instance=request.user.profile)
+    return render(request, 'users/account.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })

@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'users',
     'tinymce',
     'crispy_forms',
+    'storages',
+    'boto3',
 ]
 
 MIDDLEWARE = [
@@ -151,11 +153,13 @@ LOGGING = {
 }
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 #COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL =  '/'
@@ -163,9 +167,18 @@ LOGIN_REDIRECT_URL =  '/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+AWS_ACCESS_KEY_ID = 'REMOVED-see-settings_local'
+AWS_SECRET_ACCESS_KEY = 'REMOVED-see-settings_local'
+AWS_STORAGE_BUCKET_NAME = 'oshibkarium'
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATIC_URL = '/static/'
+
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
