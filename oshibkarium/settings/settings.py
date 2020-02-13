@@ -181,6 +181,9 @@ STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.' + AWS_S3_REGION_NAME +
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
