@@ -4,16 +4,15 @@
     <div class="col-12 col-md-6 mx-auto my-5">{{ page.content | safe }}</div>
 </div>
 <div class="row">
-    {% regroup cards by category as category_list %}
-    {% for category in category_list %}
+    {% for cat in cats %}
     <div class="col-12 col-lg-3">
-        <h3>{{ category.grouper }}</h3>
-        {% for item in category.list %}
+        <h3>{{ cat.title }}</h3>
+        {% for card in cat.cards.all %}
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{ item.title }}</h5>
-                <p class="card-text">{{ item.excerpt }}</p>
-                <a href="{% url 'card_detail' slug=item.slug %}" class="card-link">Подробнее</a>
+                <h5 class="card-title">{{ card.title }}</h5>
+                <p class="card-text">{{ card.excerpt }}</p>
+                <a href="{% url 'card_detail' slug=card.slug %}" class="card-link">Подробнее</a>
             </div>
         </div>
         {% endfor %}

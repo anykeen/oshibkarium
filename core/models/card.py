@@ -1,5 +1,5 @@
 from django.db import models
-from .category import Category
+#from .category import Category
 from tinymce.models import HTMLField
 
 class Relationship(models.Model):
@@ -13,7 +13,7 @@ class Relationship(models.Model):
 class Card(models.Model):
     title = models.CharField(max_length=200, verbose_name = 'Заголовок')
     slug = models.CharField(max_length=200, verbose_name = 'Slug', unique = True)
-    category = models.ForeignKey(Category, verbose_name = 'Категория', on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', verbose_name = 'Категория', on_delete=models.CASCADE, related_name = 'cards')
     image = models.ImageField(upload_to="img/", null=True, blank=True, verbose_name = 'Изображение')
     excerpt = models.TextField(verbose_name = 'Лид')
     description = HTMLField(verbose_name = 'Описание')

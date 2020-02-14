@@ -4,8 +4,8 @@ from django.template import RequestContext
 
 def index(request):
     index = Page.objects.get(slug = '/')
-    cats = Category.objects.all()
-    cards = Card.objects.all().order_by('-category')
+    cats = Category.objects.order_by('num')
+    cards = Card.objects.all()
     return render(request, 'core/index.html', {'page': index, 'cats': cats, 'cards': cards} )
 
 def card(request, slug):
