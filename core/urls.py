@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
     url(r'^tinymce/', include('tinymce.urls')),
-    path('cards/<slug:slug>/', views.card, name='card_detail'),
+    path('pest/<slug:slug>/', views.card, name='card_detail'),
     path('<slug:slug>/', views.page, name='page'),
     path('', views.index, name='index'),
 ]
