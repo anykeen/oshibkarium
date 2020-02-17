@@ -3,8 +3,8 @@ from django.db import models
 from tinymce.models import HTMLField
 
 class Relationship(models.Model):
-    parent = models.ForeignKey('Card', related_name='parent_messages', on_delete=models.CASCADE)
-    child = models.ForeignKey('Card', related_name='child_messages', on_delete=models.CASCADE)
+    parent = models.ForeignKey('Card', related_name='parent_messages', on_delete=models.PROTECT)
+    child = models.ForeignKey('Card', related_name='child_messages', on_delete=models.PROTECT)
 
     class Meta:
         verbose_name_plural = 'Родственные ошибки'
@@ -13,7 +13,7 @@ class Relationship(models.Model):
 class Card(models.Model):
     title = models.CharField(max_length=200, verbose_name = 'Заголовок')
     slug = models.CharField(max_length=200, verbose_name = 'Slug', unique = True)
-    category = models.ForeignKey('Category', verbose_name = 'Категория', on_delete=models.CASCADE, related_name = 'cards')
+    category = models.ForeignKey('Category', verbose_name = 'Категория', on_delete=models.PROTECT, related_name = 'cards')
     image = models.ImageField(upload_to="img/", null=True, blank=True, verbose_name = 'Изображение')
     excerpt = models.TextField(verbose_name = 'Лид')
     description = HTMLField(verbose_name = 'Описание')

@@ -6,7 +6,7 @@ class RelatedInline(admin.TabularInline):
     list_display = ['title']
     can_delete = False
     fk_name = 'parent'
-    extra = 4
+    extra = 1
 
 class CardAdmin(admin.ModelAdmin):
     inlines = [RelatedInline]

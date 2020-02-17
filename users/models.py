@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.apps import apps
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     related = models.ManyToManyField('core.Card')
 
     class Meta:
