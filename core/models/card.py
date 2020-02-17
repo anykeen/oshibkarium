@@ -1,6 +1,5 @@
 from django.db import models
-#from .category import Category
-from tinymce.models import HTMLField
+from ckeditor.fields import RichTextField
 
 class Relationship(models.Model):
     parent = models.ForeignKey('Card', related_name='parent_messages', on_delete=models.PROTECT)
@@ -16,10 +15,10 @@ class Card(models.Model):
     category = models.ForeignKey('Category', verbose_name = 'Категория', on_delete=models.PROTECT, related_name = 'cards')
     image = models.ImageField(upload_to="img/", null=True, blank=True, verbose_name = 'Изображение')
     excerpt = models.TextField(verbose_name = 'Лид')
-    description = HTMLField(verbose_name = 'Описание')
-    fix = HTMLField(verbose_name = 'Как побороть ошибку?')
-    info = HTMLField(verbose_name = 'Что еще прочесть?', blank = True)
-    example = HTMLField(verbose_name = 'Дополнительные примеры (потренируйтесь на них)', blank = True)
+    description = RichTextField(verbose_name = 'Описание')
+    fix = RichTextField(verbose_name = 'Как побороть ошибку?')
+    info = RichTextField(verbose_name = 'Что еще прочесть?', blank = True)
+    example = RichTextField(verbose_name = 'Дополнительные примеры (потренируйтесь на них)', blank = True)
     related = models.ManyToManyField('Card', through=Relationship)
 
     class Meta:

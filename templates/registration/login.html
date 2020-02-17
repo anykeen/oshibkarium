@@ -5,7 +5,6 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Войти</h4>
-
         <form method="post">
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}">
@@ -14,6 +13,7 @@
 
             <button type="submit" class="btn btn-primary btn-block">Войти</button>
         </form>
+        <a href="/accounts/password_reset/">Забыли пароль?</a>
     </div>
 </div>
 {% endblock %}

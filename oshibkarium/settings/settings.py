@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'users',
-    'tinymce',
+    'ckeditor',
     'crispy_forms',
     'storages',
     'boto3',

@@ -4,7 +4,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    url(r'^tinymce/', include('tinymce.urls')),
     path('pest/<slug:slug>/', views.card, name='card_detail'),
     path('<slug:slug>/', views.page, name='page'),
     path('', views.index, name='index'),

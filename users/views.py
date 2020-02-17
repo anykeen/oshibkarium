@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView, View
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
@@ -26,23 +26,21 @@ def user(request, username):
     user = get_object_or_404(User, username=username)
     return render(request, 'users/account.html', {'username': username})
 
-def edit_profile(request):
-    user = User.objects.get(pk=request.user.pk)
-    profile = user.profile
-    #form = UserFormEdit(instance=user)
 
-    if request.user.is_authenticated() and request.user.id == user.id:
-        if request.method == "POST":
-            form = UserFormEdit(request.POST, instance=profile)
-
-            if form.is_valid():
-                update = form.save(commit=False)               
-                update.user = user
-                update.save()
-            return HttpResponse('Профиль успешно отредактирован') 
+@login_required
+@transaction.atomic
+def edit_profile(request, username):
+    if request.method == 'POST':
+        user_form = UserFormEdit(request.POST, instance=request.user)
+        if user_form.is_valid():
+            user_form.save()
+            #messages.success(request, _('Your profile was successfully updated!'))
+            return redirect(user, username=username)
         else:
-            form = UserFormEdit()
-        print(form)
-        return render(request, "users/account.html", {'form': form})
+            print('ololo')
     else:
-        raise PermissionDenied
+        user_form = UserFormEdit(instance=request.user)
+    print(user_form)
+    return render(request, 'users/edit.html', {
+        'user_form': user_form,
+    })

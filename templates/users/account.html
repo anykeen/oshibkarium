@@ -1,13 +1,6 @@
 {% extends 'base.html' %}
 {% block main %}
 <h2>{{ user.get_full_name }}</h2>
-<ul>
-  <li>Username: {{ user.get_username }}</li>
-</ul>
-
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">Save changes</button>
-  </form>
+<a href="edit">Редактировать профиль</a><br />
+<a href="/accounts/password_change/">Сменить пароль</a>
 {% endblock %}
