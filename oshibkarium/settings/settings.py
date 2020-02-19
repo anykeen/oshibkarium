@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'storages',
     'boto3',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [

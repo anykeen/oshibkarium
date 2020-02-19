@@ -1,5 +1,7 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from sorl.thumbnail import ImageField, get_thumbnail
+
 
 class Relationship(models.Model):
     parent = models.ForeignKey('Card', related_name='parent_messages', on_delete=models.PROTECT)
@@ -10,20 +12,33 @@ class Relationship(models.Model):
         verbose_name = 'Родственные ошибки'
 
 class Card(models.Model):
-    title = models.CharField(max_length=200, verbose_name = 'Заголовок')
-    slug = models.CharField(max_length=200, verbose_name = 'Slug', unique = True)
+    title = models.CharField('Заголовок', max_length=200)
+    slug = models.CharField('Slug', max_length=200, unique = True)
     category = models.ForeignKey('Category', verbose_name = 'Категория', on_delete=models.PROTECT, related_name = 'cards')
-    image = models.ImageField(upload_to="img/", null=True, blank=True, verbose_name = 'Изображение')
-    excerpt = models.TextField(verbose_name = 'Лид')
-    description = RichTextField(verbose_name = 'Описание')
-    fix = RichTextField(verbose_name = 'Как побороть ошибку?')
-    info = RichTextField(verbose_name = 'Что еще прочесть?', blank = True)
-    example = RichTextField(verbose_name = 'Дополнительные примеры (потренируйтесь на них)', blank = True)
+    image = ImageField('Изображение', upload_to="img/", null=True, blank=True)
+    excerpt = models.TextField('Лид')
+    description = RichTextField('Описание')
+    fix = RichTextField('Как побороть ошибку?')
+    info = RichTextField('Что еще прочесть?', blank = True)
+    example = RichTextField('Дополнительные примеры (потренируйтесь на них)', blank = True)
     related = models.ManyToManyField('Card', through=Relationship)
+
+
+    def image_tag(self):
+        if self.image:
+            return u'<img src="%s%s" />' % (settings.MEDIA_URL,
+                                            get_thumbnail(self.image, '90x90'))
+        else:
+            return 'без картинки'
+    image_tag.short_description = 'картинка'
+    image_tag.allow_tags = True
+
 
     class Meta:
         verbose_name_plural = 'Карточки ошибок'
         verbose_name = 'Карточка ошибки'
+    
+    
 
     def __str__(self):
         return self.title
