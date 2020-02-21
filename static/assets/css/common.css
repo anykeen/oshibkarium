@@ -5,14 +5,18 @@ table {
     border: 0!important;
     border-radius: 0.75em;
 }
-tr > td:only-child {
+tr > td:only-child.red {
     width: 100%;
-    color: #000!important;
+    color: #ef4c24!important;
 }
-tr > td:first-child, .red {
+tr > td:only-child.green {
+    width: 100%;
+    color: #41a31d!important;
+}
+tr > td:first-child {
     color: #ef4c24;
 }
-tr > td:last-child, .green {
+tr > td:last-child {
     color: #41a31d;
 }
 td {
