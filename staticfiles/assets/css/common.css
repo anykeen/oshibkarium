@@ -9,10 +9,10 @@ tr > td:only-child {
     width: 100%;
     color: #000!important;
 }
-tr > td:first-child {
+tr > td:first-child, .red {
     color: #ef4c24;
 }
-tr > td:last-child {
+tr > td:last-child, .green {
     color: #41a31d;
 }
 td {
