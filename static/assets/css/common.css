@@ -16,7 +16,7 @@ tr > td:only-child.green {
 tr > td:first-child {
     color: #ef4c24;
 }
-tr > td:last-child {
+tr > td:nth-child(2) {
     color: #41a31d;
 }
 td {
