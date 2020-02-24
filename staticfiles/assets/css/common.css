@@ -4,7 +4,7 @@ table {
     background-color: #f3f4eb;
     border: 0!important;
     border-radius: 0.75em;
-    margin-top: 1.25em;
+    margin-bottom: 1.25em;
 }
 tr > td:only-child.red {
     width: 100%;
