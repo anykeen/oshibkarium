@@ -16,21 +16,21 @@
         <h1>{{ card.title }}</h1>
         <h5 class="text-muted mb-3">{{ card.excerpt }}</h5>
         {{ card.description | safe }}
-        <h4 class="mt-3">Как побороть ошибку?</h4>
+        <h4 class="my-4">Как побороть ошибку?</h4>
         {{ card.fix | safe }}
         {% if card.info %}
-        <h4>Что еще прочесть?</h4>
+        <h4 class="my-4">Что еще прочесть?</h4>
         {{ card.info | safe }}
         {% endif %}
         {% if card.example %}
-        <h4>Дополнительные примеры (потренируйтесь на них)</h4>
+        <h4 class="my-4">Дополнительные примеры (потренируйтесь на них)</h4>
         {{ card.example | safe }}
         {% endif %}
     </div>
 </div>
 {% if card.related.all %}
 <div class="row">
-    <h4 class="mx-auto">Родственные ошибки:</h4>
+    <h4 class="mx-auto my-4">Родственные ошибки:</h4>
 </div>
 <div class="row mb-5">
     {% for related in card.related.all %}
