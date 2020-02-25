@@ -30,7 +30,11 @@
 </div>
 {% if card.related.all %}
 <div class="row">
+    {% if card.related.all|length <= 1 %}
+    <h4 class="mx-auto my-4">Родственная ошибка:</h4>
+    {% else %}
     <h4 class="mx-auto my-4">Родственные ошибки:</h4>
+    {% endif %}
 </div>
 <div class="row mb-5">
     {% for related in card.related.all %}

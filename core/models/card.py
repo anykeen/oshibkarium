@@ -4,8 +4,8 @@ from sorl.thumbnail import ImageField, get_thumbnail
 
 
 class Relationship(models.Model):
-    parent = models.ForeignKey('Card', related_name='parent_messages', on_delete=models.PROTECT)
-    child = models.ForeignKey('Card', related_name='child_messages', on_delete=models.PROTECT)
+    parent = models.ForeignKey('Card', related_name='parent_messages', on_delete=models.SET_NULL, null=True, blank=True)
+    child = models.ForeignKey('Card', related_name='child_messages', on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Родственные ошибки'
