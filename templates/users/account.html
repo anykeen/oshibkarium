@@ -4,7 +4,7 @@
 <a href="edit">Редактировать профиль</a><br />
 <a href="/accounts/password_change/">Сменить пароль</a>
 {% if user.profile.related.all %}
-<h2>Мои ошибки:</h2>
+<h2>Хочу прогнать из своих текстов:</h2>
 <div class="row mb-5">
     {% for related in user.profile.related.all %}
     <div class="col-12 col-lg-3">

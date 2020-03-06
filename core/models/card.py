@@ -22,6 +22,7 @@ class Card(models.Model):
     fix = RichTextField('Как побороть ошибку?')
     info = RichTextField('Что еще прочесть?', blank = True)
     example = RichTextField('Дополнительные примеры (потренируйтесь на них)', blank = True)
+    published = models.BooleanField('Опубликован', default=False)
     related = models.ManyToManyField('Card', through=Relationship)
 
 
