@@ -48,8 +48,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">{{ related.title }}</h5>
-                <p class="card-text">{{ related.excerpt }}</p>
-                <a href="{% url 'card_detail' slug=related.slug %}" class="card-link">Подробнее</a>
+                <a href="{% url 'card_detail' slug=related.slug %}"><p class="card-text">{{ related.excerpt }}</p></a>
             </div>
         </div>
     </div>

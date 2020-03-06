@@ -10,9 +10,17 @@
         {% for card in cat.cards.all %}
         <div class="card mb-3">
             <div class="card-body">
-                <h5 class="card-title">{{ card.title }}</h5>
-                <p class="card-text">{{ card.excerpt }}</p>
-                <a href="{% url 'card_detail' slug=card.slug %}" class="card-link">Подробнее</a>
+                <div class="row">
+                    <div class="col-4">
+                        {% if card.image %}
+                        <img class="mx-auto w-100" src="{{ card.image.url }}">
+                        {% endif %}
+                    </div>
+                    <div class="col-8">
+                        <h5 class="card-title">{{ card.title }}</h5>
+                        <a href="{% url 'card_detail' slug=card.slug %}"><p class="card-text">{{ card.excerpt }}</p></a>
+                    </div>
+                </div>
             </div>
         </div>
         {% endfor %}
