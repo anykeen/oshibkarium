@@ -13,7 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 class UserRegisterFormView(FormView):
     form_class = UserForm
-    success_url = "/accounts/login/"
+    success_url = "/login/"
     template_name = "users/register.html"
 
     def form_valid(self, form):
