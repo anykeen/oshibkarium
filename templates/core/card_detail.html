@@ -19,7 +19,7 @@
         {% endif %}
     </div>
     <div class="col-12 col-lg-8">
-        <h1>{{ card.title }}</h1>
+        <h1>{% if card.index %}{{ card.index }} &mdash; {% endif %}{{ card.title }}</h1>
         <h5 class="text-muted mb-3">{{ card.excerpt }}</h5>
         {{ card.description | safe }}
         <h4 class="my-4">Как побороть ошибку?</h4>
