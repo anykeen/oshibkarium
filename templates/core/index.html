@@ -11,6 +11,9 @@
         <div class="card mb-3 {%if card in user.profile.related.all %}highlight{% endif %}">
             <div class="card-body p-3">
                 <h5 class="card-title">{{ card.title }}</h5>
+                {% if card.index %}
+                <span class="card-index text-muted">{{ card.index }}</span>
+                {% endif %}
                 {% if card.image %}
                 <img class="mr-1 mb-1 float-left card-image" src="{{ card.image.url }}">
                 {% endif %}

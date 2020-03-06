@@ -46,3 +46,7 @@ p.card-text {
 .highlight {
     border-color: #f86052;
 }
+span.card-index {
+    position: absolute;
+    left: 1rem;
+}

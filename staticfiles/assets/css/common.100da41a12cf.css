@@ -1,0 +1,52 @@
+/* Table */
+table {
+    width: 100%;
+    background-color: #f3f4eb;
+    border: 0!important;
+    border-radius: 0.75em;
+    margin-bottom: 1.25em;
+}
+tr > td:only-child.red {
+    width: 100%;
+    color: #ef4c24!important;
+}
+tr > td:only-child.green {
+    width: 100%;
+    color: #41a31d!important;
+}
+tr > td:first-child {
+    color: #ef4c24;
+}
+tr > td:nth-child(2) {
+    color: #41a31d;
+}
+td {
+    border: 0!important;
+    padding: 1.25em;
+    width: 50%;
+    font-size: 0.9em;
+}
+td > p {
+    margin-bottom: 0!important;
+}
+
+/* Main */
+.card {
+    border: 2px solid rgba(0,0,0,.125);
+}
+img.card-image {
+    width: 40%;
+}
+h5.card-title {
+    font-size: 1.05rem;
+}
+p.card-text {
+    font-size: 0.8rem;
+}
+.highlight {
+    border-color: #f86052;
+}
+span.card-index {
+    position: absolute;
+    left: 1rem;
+}
