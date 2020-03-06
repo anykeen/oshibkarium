@@ -1,11 +1,14 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView, View
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from .forms import UserForm, UserFormEdit
 from django.core.exceptions import PermissionDenied
+from core.models import Card
+from django.views.decorators.csrf import csrf_exempt
 
 
 class UserRegisterFormView(FormView):
@@ -44,3 +47,22 @@ def edit_profile(request, username):
     return render(request, 'users/edit.html', {
         'user_form': user_form,
     })
+
+
+@csrf_exempt
+def card_add(request):
+    card_id = request.POST.get('id')
+    card = get_object_or_404(Card, id=card_id)
+    request.user.profile.related.add(card)
+    request.user.profile.save()
+
+    return render(request, 'core/card_detail.html')
+    
+@csrf_exempt
+def card_remove(request):
+    card_id = request.POST.get('id')
+    card = get_object_or_404(Card, id=card_id)
+    request.user.profile.related.remove(card)
+    request.user.profile.save()
+
+    return render(request, 'core/card_detail.html')

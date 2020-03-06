@@ -7,4 +7,5 @@ urlpatterns = [
     path('pest/<slug:slug>/', views.card, name='card_detail'),
     path('<slug:slug>/', views.page, name='page'),
     path('', views.index, name='index'),
+    url(r'', include(('users.urls', 'users'), namespace='users')),
 ]

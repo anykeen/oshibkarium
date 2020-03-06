@@ -3,4 +3,20 @@
 <h2>{{ user.get_full_name }}</h2>
 <a href="edit">Редактировать профиль</a><br />
 <a href="/accounts/password_change/">Сменить пароль</a>
+{% if user.profile.related.all %}
+<h3>Мои ошибки:</h3>
+<div class="row mb-5">
+    {% for related in user.profile.related.all %}
+    <div class="col-12 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ related.title }}</h5>
+                <p class="card-text">{{ related.excerpt }}</p>
+                <a href="{% url 'card_detail' slug=related.slug %}" class="card-link">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 {% endblock %}
