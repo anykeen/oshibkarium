@@ -46,9 +46,12 @@
     {% for related in card.related.all %}
     <div class="col-12 col-lg-3">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body p-3">
                 <h5 class="card-title">{{ related.title }}</h5>
-                <a href="{% url 'card_detail' slug=related.slug %}"><p class="card-text">{{ related.excerpt }}</p></a>
+                {% if card.image %}
+                <img class="mr-1 mb-1 float-left card-image" src="{{ card.image.url }}">
+                {% endif %}
+                <a href="{% url 'card_detail' slug=card.slug %}"><p class="card-text">{{ card.excerpt }}</p></a>
             </div>
         </div>
     </div>

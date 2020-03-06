@@ -29,3 +29,20 @@ td {
 td > p {
     margin-bottom: 0!important;
 }
+
+/* Main */
+.card {
+    border: 2px solid rgba(0,0,0,.125);
+}
+img.card-image {
+    width: 40%;
+}
+h5.card-title {
+    font-size: 1.05rem;
+}
+p.card-text {
+    font-size: 0.8rem;
+}
+.highlight {
+    border-color: #f86052;
+}

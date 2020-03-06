@@ -14,6 +14,7 @@ class Relationship(models.Model):
 class Card(models.Model):
     title = models.CharField('Заголовок', max_length=200)
     slug = models.CharField('Slug', max_length=200, unique = True)
+    index = models.CharField('Индекс', max_length=10, blank=True)
     category = models.ForeignKey('Category', verbose_name = 'Категория', on_delete=models.PROTECT, related_name = 'cards')
     image = ImageField('Изображение', upload_to="img/", null=True, blank=True)
     excerpt = models.TextField('Лид')

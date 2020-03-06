@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from .forms import UserForm, UserFormEdit
 from django.core.exceptions import PermissionDenied
-from core.models import Card
+from core.models import Card, Category
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -27,7 +27,8 @@ class UserRegisterFormView(FormView):
 @login_required
 def user(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'users/account.html', {'username': username})
+    cats = Category.objects.order_by('num')
+    return render(request, 'users/account.html', {'username': username, 'cats': cats})
 
 
 @login_required
@@ -57,7 +58,7 @@ def card_add(request):
     request.user.profile.save()
 
     return render(request, 'core/card_detail.html')
-    
+
 @csrf_exempt
 def card_remove(request):
     card_id = request.POST.get('id')
