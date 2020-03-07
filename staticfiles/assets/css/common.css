@@ -1,3 +1,7 @@
+/* Common */
+p:empty {
+    display: none;
+}
 /* Table */
 table {
     width: 100%;
