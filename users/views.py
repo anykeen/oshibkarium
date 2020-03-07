@@ -17,6 +17,7 @@ class UserRegisterFormView(FormView):
     template_name = "users/register.html"
 
     def form_valid(self, form):
+        print(form)
         form.save()
         return super(UserRegisterFormView, self).form_valid(form)
 
