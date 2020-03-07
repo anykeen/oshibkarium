@@ -6,7 +6,7 @@ def all_card(modeladmin, reguest, queryset):
         print(qs.title)
 
 def complete_card(modeladmin, reguest, queryset):
-    queryset.update(published=43)
+    queryset.update(published=True)
 complete_card.short_description = 'Опубликовать'
 
 def incomplete_card(modeladmin, reguest, queryset):
