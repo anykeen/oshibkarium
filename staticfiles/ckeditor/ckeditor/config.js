@@ -8,7 +8,7 @@ CKEDITOR.editorConfig = function (config) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	config.allowedContent =
-		'h1 h2 h3 h4 h5 p span blockquote strong em table tbody td tr ul li ol br;' +
+		'h1 h2 h3 h4 h5 p span blockquote strong em table tbody td tr ul li ol br s strike;' +
 		'a[!href,target];' +
 		'td(red,green);';
 };
