@@ -3,13 +3,22 @@ from ckeditor.fields import RichTextField
 from sorl.thumbnail import ImageField, get_thumbnail
 
 
+class Example(models.Model):
+    wrong = models.TextField('Ошибочный пример', blank=True)
+    correct = models.TextField('Правильный ответ', blank=True)
+    card = models.ForeignKey('Card', on_delete=models.CASCADE, related_name='examples', blank = True, null = True)
+
+    class Meta:
+        verbose_name_plural = 'Примеры'
+        verbose_name = 'Пример'
+
 class Relationship(models.Model):
     parent = models.ForeignKey('Card', related_name='parent_messages', on_delete=models.SET_NULL, null=True, blank=True)
     child = models.ForeignKey('Card', related_name='child_messages', on_delete=models.SET_NULL, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Родственные ошибки'
-        verbose_name = 'Родственные ошибки'
+        verbose_name = 'Родственная ошибка'
 
 class Card(models.Model):
     title = models.CharField('Заголовок', max_length=200)

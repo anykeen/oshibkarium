@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Card, Category, Relationship, Page
+from core.models import Card, Category, Relationship, Page, Example
 
 def all_card(modeladmin, reguest, queryset):
     for qs in queryset:
@@ -20,8 +20,12 @@ class RelatedInline(admin.TabularInline):
     fk_name = 'parent'
     extra = 1
 
+class Exrel(admin.TabularInline):
+    model = Example
+    extra = 1
+
 class CardAdmin(admin.ModelAdmin):
-    inlines = [RelatedInline]
+    inlines = [Exrel, RelatedInline]
     list_display = ['title', 'published', 'category']
     actions = [all_card, complete_card, incomplete_card]
 
