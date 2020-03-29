@@ -5,6 +5,7 @@
 /tmp/
 /www/
 /media/
+/boilerplate/
 *_local.*
 *.sqlite3
 *.pyc

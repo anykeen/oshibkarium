@@ -1,11 +1,15 @@
 /* Common */
+body {
+    background-color: #f2efec;
+    color: #393f58;
+}
 p:empty {
     display: none;
 }
 /* Table */
 table {
     width: 100%;
-    background-color: #f3f4eb;
+    background-color: #fff;
     border: 0!important;
     border-radius: 0.75em;
     margin-bottom: 1.25em;

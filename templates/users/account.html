@@ -1,29 +1,40 @@
 {% extends 'base.html' %}
 {% block main %}
-<h2>{{ user.get_full_name }}</h2>
-<a href="edit">Редактировать профиль</a><br />
-<a href="/accounts/password_change/">Сменить пароль</a>
-{% if user.profile.related.all %}
-<h2>Хочу прогнать из своих текстов:</h2>
-<div class="row mb-5">
-    {% for related in user.profile.related.all %}
-    {% if related.published %}
-    <div class="col-12 col-lg-3">
-        <div class="card">
-            <div class="card-body p-3">
-                <h5 class="card-title">{{ related.title }}</h5>
+<div class="container">
+    <h2>{{ user.get_full_name }}</h2>
+    <a href="edit">Редактировать профиль</a><br />
+    <a href="/accounts/password_change/">Сменить пароль</a>
+    {% if user.profile.related.all %}
+    <h2>Хочу прогнать из своих текстов:</h2>
+    <div class="row mb-5">
+        {% for related in user.profile.related.all %}
+        {% if related.published %}
+        <div class="col-12 col-lg-3">
+            <div class="card mb-3">
                 {% if related.index %}
-                <span class="card-index text-muted">{{ related.index }}</span>
+                <div class="index">
+                    {{ related.index }}
+                </div>
                 {% endif %}
-                {% if related.image %}
-                <img class="mr-1 mb-1 float-left card-image" src="{{ related.image.url }}">
-                {% endif %}
-                <a href="{% url 'card_detail' slug=related.slug %}"><p class="card-text">{{ related.excerpt }}</p></a>
+                <div class="card-body p-3">
+                    <div class="w-66">
+                        <a href="{% url 'card_detail' slug=related.slug %}">
+                            <h3 class="card-title">{{ related.title }}</h3>
+                            <p class="card-text">{{ related.excerpt }}</p>
+                        </a>
+                    </div>
+                    <div class="w-33">
+                        {% if related.image %}
+                        <a href="{% url 'card_detail' slug=related.slug %}">
+                            <img class="mt-3" src="{{ related.image.url }}"> {% endif %}
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
     {% endif %}
-    {% endfor %}
 </div>
-{% endif %}
 {% endblock %}

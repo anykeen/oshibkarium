@@ -1,29 +1,53 @@
-{% extends 'base.html' %}
-{% block main %}
-<div class="row">
-    <div class="col-12 col-md-6 mx-auto my-5">{{ page.content | safe }}</div>
-</div>
-<div class="row">
-    {% for cat in cats %}
-    <div class="col-12 col-lg-3">
-        <h3>{{ cat.title }}</h3>
-        {% for card in cat.cards.all %}
-        {% if card.published %}
-        <div class="card mb-3 {%if card in user.profile.related.all %}highlight{% endif %}">
-            <div class="card-body p-3">
-                <h5 class="card-title">{{ card.title }}</h5>
-                {% if card.index %}
-                <span class="card-index text-muted">{{ card.index }}</span>
-                {% endif %}
-                {% if card.image %}
-                <img class="mr-1 mb-1 float-left card-image" src="{{ card.image.url }}">
-                {% endif %}
-                <a href="{% url 'card_detail' slug=card.slug %}"><p class="card-text">{{ card.excerpt }}</p></a>
+{% extends 'base.html' %} {% block main %}
+<div class="container-fluid">
+    <div class="container header">
+        <div class="row">
+            <div class="col-lg-4 col-6 mx-auto my-auto align-center">
+                <h1>{{ page.title }}</h1>
+                <div class="page-content">{{ page.content | safe }}</div>
+                <div class="row mt-5">
+                    <div class="col mx-auto align-center">
+                        <a href="" class="btn-primary" id="scrolltocards">Открыть ошибкариум</a>
+                        {% if user.is_authenticated %}{% else %}
+                        <a class="nav-link" href="{% url 'register' %}">Зарегистрироваться</a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
-        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="row" id="cards">
+        {% for cat in cats %}
+        <div class="col-3">
+            <h2>{{ cat.title }}</h2>
+            {% for card in cat.cards.all %} {% if card.published %}
+            <div class="card mb-3">
+                {% if card.index %}
+                <div class="index{% if card in user.profile.related.all %} highlight{% endif %}">
+                    {{ card.index }}
+                </div>
+                {% endif %}
+                <div class="card-body p-3">
+                    <div class="w-66">
+                        <a href="{% url 'card_detail' slug=card.slug %}">
+                            <h3 class="card-title">{{ card.title }}</h3>
+                            <p class="card-text">{{ card.excerpt }}</p>
+                        </a>
+                    </div>
+                    <div class="w-33">
+                        {% if card.image %}
+                        <a href="{% url 'card_detail' slug=card.slug %}">
+                            <img class="mt-3" src="{{ card.image.url }}"> {% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+        </div>
         {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
