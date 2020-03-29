@@ -509,7 +509,7 @@ span.subtitle {
 }
 
 .card-detail ol, .card-detail ul {
-  margin-left: 0.5rem;
+  margin-left: -1.25rem;
 }
 
 table {
