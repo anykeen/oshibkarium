@@ -520,9 +520,14 @@ table {
   margin-bottom: 1.25em;
 }
 
-tr > td:only-child {
+tr > td:only-child.red {
   width: 100%;
-  color: #393F58 !important;
+  color: #EF6C5A;
+}
+
+tr > td:only-child.green {
+  width: 100%;
+  color: #289800;
 }
 
 tr > td:first-child {
@@ -537,11 +542,11 @@ td {
   border: 0 !important;
   padding: 1.25em;
   width: 50%;
-  font-size: 0.9em;
+  font-family: "Cormorant", serif;
+  font-size: 24px;
 }
 
 td > p {
-  margin-bottom: 0 !important;
   font-family: "Cormorant", serif;
   font-size: 24px;
 }
