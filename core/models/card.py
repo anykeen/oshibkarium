@@ -6,7 +6,7 @@ from sorl.thumbnail import ImageField, get_thumbnail
 class Example(models.Model):
     wrong = models.TextField('Ошибочный пример', blank=True)
     correct = models.TextField('Правильный ответ', blank=True)
-    card = models.ForeignKey('Card', on_delete=models.CASCADE, related_name='examples', blank = True, null = True)
+    card = models.ForeignKey('Card', on_delete=models.SET_NULL, related_name='examples', blank = True, null = True)
 
     class Meta:
         verbose_name_plural = 'Примеры'

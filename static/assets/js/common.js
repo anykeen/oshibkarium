@@ -32,6 +32,12 @@
             $('html, body').animate({
                 scrollTop: $("#cards").offset().top
             }, 1000);
+        });
+
+        $("a#check").click(function(e) {
+            e.preventDefault();
+            $(this).hide();
+            $(this).next("p#hidden").show();
         })
 
     });

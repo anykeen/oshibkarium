@@ -26,6 +26,22 @@
             {{ card.info | safe }} {% endif %} {% if card.example %}
             <h3>Дополнительные примеры (потренируйтесь на них)</h3>
             {{ card.example | safe }} {% endif %}
+            {% if card.examples.all %}
+            <h3>Дополнительные примеры для тренировки</h3>
+            {% for example in card.examples.all %}
+            <table>
+                <tbody>
+                    <tr>
+                        <td><p>{{ example.wrong }}</p></td>
+                        <td>
+                            <a href="" id="check" class="btn">Нашли ошибку? Проверьте</a>
+                            <p id="hidden">{{ example.correct }}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {% endfor %}
+            {% endif %}
             {% if card.related.all %}
             {% if card.related.all|length > 1 %} 
             <h3>Родственные ошибки:</h3>
