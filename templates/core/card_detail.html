@@ -2,15 +2,18 @@
 <div class="container">
     <div class="row mt-5 mb-2">
         <div class="col-12 col-md-5">
+            {% if card.image %}
             <div class="row">
-                {% if card.image %}
-                <img class="mx-auto" src="{{ card.image.url }}" width="420"> {% endif %}
+                <img class="mx-auto" src="{{ card.image.url }}" width="420"> 
             </div>
+            {% endif %}
             {% if user.is_authenticated %}
             <div class="row mt-3">
                 {% if card in user.profile.related.all %}
                 <a href="" class="btn btn-primary mx-auto btn-remove" data-id="{{ card.id }}">Убрать из моего ошибкариума</a> {% else %}
                 <a href="" class="btn btn-primary mx-auto btn-add" data-id="{{ card.id }}">Добавить в мой ошибкариум</a> {% endif %}
+                <a href="https://plus.google.com/share?url=https://oshibkarium.herokuapp.com/{{ request.get_full_path|urlencode }}"></a>
+                <a href="http://www.facebook.com/sharer/sharer.php?u=https://oshibkarium.herokuapp.com/{{ request.get_full_path|urlencode }}">Ololo</a>
             </div>
             {% endif %}
         </div>
@@ -42,6 +45,20 @@
             </table>
             {% endfor %}
             {% endif %}
+            <div class="promo">
+                <div class="row">
+                    <div class="col-2">
+                        <img class="promo-image" src="https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/core_3.png">
+                    </div>
+                    <div class="col-10">
+                        <div class="promo-block">
+                            <h3>Этот ляпсус — в ваших текстах?</h3>
+                            <p>Самостоятельно найти все ошибки — трудно. Позовите опытного редактора, который на них укажет и проконсультирует вас. Или запишитесь на <a href="https://www.timuroki.ink/course" target="_blank">Тимуроки-курс</a>.</p>
+                            <a href class="btn btn-primary">Позвать редактора</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% if card.related.all %}
             {% if card.related.all|length > 1 %} 
             <h3>Родственные ошибки:</h3>
@@ -75,8 +92,8 @@
                 </div>
                 {% endfor %}
             </div>
+            {% endif %}
         </div>
     </div>
 </div>
-{% endif %}
 {% endblock %}
