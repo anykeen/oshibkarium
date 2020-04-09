@@ -500,6 +500,43 @@ h2 {
   background-color: #EF4C24;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  display: none;
+  width: fit-content;
+  padding: 0.5em;
+  background-color: #393F58;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  width: 120px;
+  top: 150%;
+  left: 50%;
+  margin-left: -60px;
+  font-size: 10.6666666667px;
+}
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #393F58 transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  display: block;
+}
+
 .wrapper {
   display: flex;
 }
