@@ -12,14 +12,12 @@
                 {% if card in user.profile.related.all %}
                 <a href="" class="btn btn-primary mx-auto btn-remove" data-id="{{ card.id }}">Убрать из моего ошибкариума</a> {% else %}
                 <a href="" class="btn btn-primary mx-auto btn-add" data-id="{{ card.id }}">Добавить в мой ошибкариум</a> {% endif %}
-                <a href="https://plus.google.com/share?url=https://oshibkarium.herokuapp.com/{{ request.get_full_path|urlencode }}"></a>
-                <a href="http://www.facebook.com/sharer/sharer.php?u=https://oshibkarium.herokuapp.com/{{ request.get_full_path|urlencode }}">Ololo</a>
             </div>
             {% endif %}
         </div>
         <div class="col-12 col-md-6 mx-auto card-detail">
             <div class="wrapper">
-                <h1>{{ card.title }}</h1>{% if card.index %}<span class="card-index">{{ card.index }}</span>{% endif %}
+                <h1>{{ card.title }}</h1>{% if card.indexnum %}<span class="card-index">{{ card.indexnum }}{{ card.category|make_list|first}}</span>{% endif %}
             </div>
             <span class="subtitle">{{ card.excerpt }}</span>
             {{ card.description | safe }}
