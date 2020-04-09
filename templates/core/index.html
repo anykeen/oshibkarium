@@ -23,7 +23,7 @@
         {% for cat in cats %}
         <div class="col-3">
             <h2>{{ cat.title }}</h2>
-            {% for card in cat.cards.all|dictsort:"indexnum" %} {% if card.published %}
+            {% for card in cat.cards.all %} {% if card.published %}
             <div class="card mb-3">
                 {% if card.indexnum %}
                 <div class="index{% if card in user.profile.related.all %} highlight{% endif %}">
