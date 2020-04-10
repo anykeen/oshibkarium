@@ -457,7 +457,7 @@ h2 {
   word-wrap: break-word;
   background-clip: border-box;
   border-radius: 10px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F2EFEC 100%), #FFFFFF;
+  background: linear-gradient(180deg, #ffffff 0%, #f2efec 100%), #ffffff;
 }
 .card:hover {
   background: #fff;
@@ -535,6 +535,15 @@ h2 {
 
 .tooltip:hover .tooltiptext {
   display: block;
+}
+
+.bg {
+  background: url("https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -60px 0 60px;
+  height: calc(100vh + 60px);
 }
 
 .wrapper {
