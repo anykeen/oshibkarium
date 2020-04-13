@@ -2,7 +2,7 @@ from django.contrib import admin
 from users.models import Profile
 
 class ProfileAdmin(admin.ModelAdmin):
-    readonly_fields = ['user', 'related']
+    readonly_fields = ['user', 'current', 'finished']
 
 admin.site.register(Profile, ProfileAdmin)
 

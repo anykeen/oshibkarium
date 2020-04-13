@@ -4,29 +4,61 @@
     <h2>{{ user.get_full_name }}</h2>
     <a href="edit">Редактировать профиль</a><br />
     <a href="/accounts/password_change/">Сменить пароль</a>
-    {% if user.profile.related.all %}
+    {% if user.profile.current.all %}
     <h2>Хочу прогнать из своих текстов:</h2>
     <div class="row mb-5">
-        {% for related in user.profile.related.all %}
-        {% if related.published %}
+        {% for current in user.profile.current.all %}
+        {% if current.published %}
         <div class="col-12 col-md-3">
             <div class="card mb-3">
-                {% if related.index %}
-                <div class="index">
-                    {{ related.index }}
+                {% if current.indexnum %}
+                <div class="index highlight">
+                    {{ current.indexnum }}
                 </div>
                 {% endif %}
                 <div class="card-body p-3">
                     <div class="w-66">
-                        <a href="{% url 'card_detail' slug=related.slug %}">
-                            <h3 class="card-title">{{ related.title }}</h3>
-                            <p class="card-text">{{ related.excerpt }}</p>
+                        <a href="{% url 'card_detail' slug=current.slug %}">
+                            <h3 class="card-title">{{ current.title }}</h3>
+                            <p class="card-text">{{ current.excerpt }}</p>
                         </a>
                     </div>
                     <div class="w-33">
-                        {% if related.image %}
-                        <a href="{% url 'card_detail' slug=related.slug %}">
-                            <img class="mt-3" src="{{ related.image.url }}"> {% endif %}
+                        {% if current.image %}
+                        <a href="{% url 'card_detail' slug=current.slug %}">
+                            <img class="mt-3" src="{{ current.image.url }}"> {% endif %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if user.profile.finished.all %}
+    <h2>Изгнанные:</h2>
+    <div class="row mb-5">
+        {% for finished in user.profile.finished.all %}
+        {% if finished.published %}
+        <div class="col-12 col-md-3">
+            <div class="card mb-3">
+                {% if finished.indexnum %}
+                <div class="index done">
+                    {{ finished.indexnum }}
+                </div>
+                {% endif %}
+                <div class="card-body p-3">
+                    <div class="w-66">
+                        <a href="{% url 'card_detail' slug=finished.slug %}">
+                            <h3 class="card-title">{{ finished.title }}</h3>
+                            <p class="card-text">{{ finished.excerpt }}</p>
+                        </a>
+                    </div>
+                    <div class="w-33">
+                        {% if finished.image %}
+                        <a href="{% url 'card_detail' slug=finished.slug %}">
+                            <img class="mt-3" src="{{ finished.image.url }}"> {% endif %}
                         </a>
                     </div>
                 </div>

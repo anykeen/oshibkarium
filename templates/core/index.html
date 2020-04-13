@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="container header">
             <div class="row">
-                <div class="col-lg-4 col-6 mx-auto my-auto align-center">
+                <div class="col-lg-5 col-6 mx-auto my-auto align-center">
                     <h1>{{ page.title }}</h1>
-                    <div class="page-content">{{ page.content | safe }}</div>
+                    <div class="page-content mx-5">{{ page.content | safe }}</div>
                     <div class="row mt-5">
                         <div class="col mx-auto align-center">
-                            <a href="" class="btn btn-primary" id="scrolltocards">Открыть ошибкариум</a>
+                            <a href="" class="btn btn-primary" id="scrolltocards">Ляпсусы? Это что?</a>
                             {% if user.is_authenticated %}{% else %}
                             <a class="nav-link" href="{% url 'register' %}">Зарегистрироваться</a>
                             {% endif %}
@@ -28,13 +28,13 @@
             {% for card in cat.cards.all|dictsort:"indexnum" %} {% if card.published %}
             <div class="card mb-3">
                 {% if card.indexnum %}
-                <div class="index{% if card in user.profile.related.all %} highlight{% endif %}">
-                    {% if card in user.profile.related.all %}
+                <div class="index{% if card in user.profile.current.all %} highlight{% endif %}{% if card in user.profile.finished.all %} done{% endif %}">
+                    {% if card in user.profile.current.all %}
                     <a href="" class="btn-remove tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
                         <span class="tooltiptext">Убрать ошибку</span>
                     </a>
                     {% else %}
-                    <a href="" class="btn-add tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
+                    <a href="" class="btn-add-current tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
                         <span class="tooltiptext">Добавить ошибку</span>
                     </a>
                     {% endif %}

@@ -51,10 +51,21 @@ def edit_profile(request, username):
 
 
 @csrf_exempt
-def card_add(request):
+def card_add_current(request):
     card_id = request.POST.get('id')
     card = get_object_or_404(Card, id=card_id)
-    request.user.profile.related.add(card)
+    request.user.profile.finished.remove(card)
+    request.user.profile.current.add(card)
+    request.user.profile.save()
+
+    return render(request, 'core/card_detail.html')
+
+@csrf_exempt
+def card_add_finish(request):
+    card_id = request.POST.get('id')
+    card = get_object_or_404(Card, id=card_id)
+    request.user.profile.current.remove(card)
+    request.user.profile.finished.add(card)
     request.user.profile.save()
 
     return render(request, 'core/card_detail.html')
@@ -63,7 +74,8 @@ def card_add(request):
 def card_remove(request):
     card_id = request.POST.get('id')
     card = get_object_or_404(Card, id=card_id)
-    request.user.profile.related.remove(card)
+    request.user.profile.current.remove(card)
+    request.user.profile.finished.remove(card)
     request.user.profile.save()
 
     return render(request, 'core/card_detail.html')

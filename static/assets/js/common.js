@@ -4,11 +4,21 @@
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
     $(document).ready(function() {
-        $("a.btn-add").click(function() {
+        $("a.btn-add-current").click(function() {
             var id = $(this).data('id');
             $.ajax({
                 type: "POST",
-                url: '/api/user/add-card/',
+                url: '/api/user/add-card-current/',
+                data: { id: id },
+                success: location.reload(),
+            });
+        });
+
+        $("a.btn-add-finish").click(function() {
+            var id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                url: '/api/user/add-card-finish/',
                 data: { id: id },
                 success: location.reload(),
             });

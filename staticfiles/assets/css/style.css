@@ -260,6 +260,15 @@ body {
 }
 
 @media screen and (min-width: 1920px) {
+  .col-md-5 {
+    max-width: 41.666667%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+  }
+}
+
+@media screen and (min-width: 1920px) {
   .col-lg-6 {
     max-width: 50%;
     -webkit-box-flex: 0;
@@ -271,6 +280,11 @@ body {
 .mx-auto {
   margin-right: auto;
   margin-left: auto;
+}
+
+.mx-5 {
+  margin-right: 3rem;
+  margin-left: 3rem;
 }
 
 .my-auto {
@@ -397,6 +411,7 @@ nav.scrolled a {
 
 a {
   text-decoration: none;
+  color: #EF6C5A;
 }
 
 .page-content {
@@ -489,15 +504,21 @@ h2 {
   top: 0;
   right: 0;
   background-color: rgba(57, 63, 88, 0.5);
-  color: #fff;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 14px;
   border-radius: 10px;
   padding: 0.25rem 0.75rem;
+  color: #fff;
+}
+.card .index a {
+  color: #fff;
 }
 .card .highlight {
   background-color: #EF4C24;
+}
+.card .done {
+  background-color: #393F58;
 }
 
 .tooltip {
@@ -551,6 +572,8 @@ h2 {
 }
 
 span.card-index {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
   margin-left: 1rem;
   font-size: 24px;
   border-radius: 30px;
@@ -564,6 +587,7 @@ span.subtitle {
   font-family: "Cormorant", serif;
   font-weight: 600;
   font-size: 32px;
+  font-style: italic;
 }
 
 .card-detail > p, .card-detail li {
@@ -613,11 +637,13 @@ td {
   width: 50%;
   font-family: "Cormorant", serif;
   font-size: 24px;
+  font-style: italic;
 }
 
 td > p {
   font-family: "Cormorant", serif;
   font-size: 24px;
+  font-style: italic;
 }
 
 p#hidden {
@@ -649,6 +675,10 @@ p#hidden {
 img.promo-image {
   max-width: 98px;
   margin-top: 2.5em;
+}
+
+.button-set {
+  display: grid;
 }
 
 footer {

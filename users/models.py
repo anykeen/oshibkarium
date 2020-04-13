@@ -6,7 +6,8 @@ from django.apps import apps
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    related = models.ManyToManyField('core.Card')
+    current = models.ManyToManyField('core.Card', related_name='current')
+    finished = models.ManyToManyField('core.Card', related_name='finished')
 
     class Meta:
         verbose_name_plural = 'Пользователи сайта'
