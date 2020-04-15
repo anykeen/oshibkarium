@@ -28,17 +28,23 @@
             {% for card in cat.cards.all|dictsort:"indexnum" %} {% if card.published %}
             <div class="card mb-3">
                 {% if card.indexnum %}
-                <div class="index{% if card in user.profile.current.all %} highlight{% endif %}{% if card in user.profile.finished.all %} done{% endif %}">
-                    {% if card in user.profile.current.all %}
-                    <a href="" class="btn-remove tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
-                        <span class="tooltiptext">Убрать ошибку</span>
-                    </a>
+                    {% if user.is_authenticated %}
+                        <div class="index{% if card in user.profile.current.all %} highlight{% endif %}{% if card in user.profile.finished.all %} done{% endif %}">
+                            {% if card in user.profile.current.all %}
+                            <a href="" class="btn-remove tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
+                                <span class="tooltiptext">Убрать ошибку</span>
+                            </a>
+                            {% else %}
+                            <a href="" class="btn-add-current tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
+                                <span class="tooltiptext">Добавить ошибку</span>
+                            </a>
+                            {% endif %}
+                        </div>
                     {% else %}
-                    <a href="" class="btn-add-current tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
-                        <span class="tooltiptext">Добавить ошибку</span>
-                    </a>
+                        <div class="index">
+                            {{ card.indexnum }}{{ card.category|make_list|first}}
+                        </div>
                     {% endif %}
-                </div>
                 {% endif %}
                 <div class="card-body p-3">
                     <div class="w-66">

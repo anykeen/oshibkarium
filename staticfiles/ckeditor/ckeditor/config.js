@@ -10,5 +10,6 @@ CKEDITOR.editorConfig = function (config) {
 	config.allowedContent =
 		'h1 h2 h3 h4 h5 p span blockquote strong em table tbody td tr ul li ol br s strike;' +
 		'a[!href,target];' +
-		'td(red,green);';
+		'td(red,green);' +
+		'p(question, answer);';
 };
