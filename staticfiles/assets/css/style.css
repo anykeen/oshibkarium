@@ -409,6 +409,39 @@ nav.scrolled a {
   display: none;
 }
 
+p {
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.question {
+  font-size: 24px;
+  line-height: 120%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+}
+.question:hover {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.question:hover::after {
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.question::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 7px);
+  border: 15px solid transparent;
+  border-top: 15px solid #393F58;
+  margin-left: 14px;
+}
+
+.answer {
+  display: none;
+}
+
 a {
   text-decoration: none;
   color: #EF6C5A;
@@ -519,6 +552,10 @@ h2 {
 }
 .card .done {
   background-color: #393F58;
+}
+.card .card-text {
+  font-size: 14px;
+  line-height: 130%;
 }
 
 .tooltip {
