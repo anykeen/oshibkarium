@@ -431,13 +431,6 @@ p {
   cursor: pointer;
   position: relative;
 }
-.question:hover {
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-.question:hover::after {
-  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
 .question::after {
   content: "";
   position: absolute;
@@ -727,6 +720,10 @@ img.promo-image {
   display: grid;
 }
 
+a#check {
+  font-style: normal;
+}
+
 footer {
   min-height: 60px;
   background-color: #393F58;
@@ -758,7 +755,7 @@ footer .btn-small {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 14px;
-  padding: 12px 17px;
+  padding: 0px 17px;
   margin-left: 7px;
 }
 footer input[type=email] {
@@ -780,6 +777,7 @@ footer input[type=email]::placeholder {
 }
 footer form {
   margin-bottom: 1em;
+  float: left;
 }
 footer .copyright {
   margin-top: 100px;
@@ -793,6 +791,16 @@ footer .copyright a {
   color: #fff;
 }
 footer .copyright a:hover {
+  color: #EF6C5A;
+}
+footer p {
+  font-size: 14px;
+}
+footer p.success {
+  display: none;
+  font-size: 16px;
+  font-family: "Cormorant", serif;
+  font-style: italic;
   color: #EF6C5A;
 }
 

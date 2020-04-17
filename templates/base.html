@@ -22,7 +22,7 @@
     <div class="container-fluid p-fixed">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="/">Ошибкариум</a>
+                <a class="navbar-brand" href="/#cards">Ошибкариум</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapsed" aria-controls="navbarCollapsed" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,18 +72,19 @@
                 </div>
                 <div class="col-md-4 col-12">
                     <h4>Рассылка Ошибкариума</h4>
-                    <form action="https://smartia.us13.list-manage.com/subscribe/post" method="POST">
+                    <form id="subscription" action="https://smartia.us13.list-manage.com/subscribe/post" method="POST">
                         <input type="hidden" name="u" value="c06b10e38a025e33133083f8e">
                         <input type="hidden" name="id" value="1e212793ec">
                         <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" size="25" value="" placeholder="Ваш email">
-                        <input type="submit" class="btn btn-primary btn-small" name="submit" value="Подписаться">
                     </form>
-                    <span>Одно письмо в месяц, если добавлены новые ляпсусы/функции.</span>
+                    <button class="btn btn-primary btn-small" name="submit">Подписаться</button>
+                    <p class="success">Спасибо за подписку!</p>
+                    <p>Одно письмо в месяц, если добавлены новые ляпсусы/функции.</p>
                 </div>
             </div>
             <div class="row copyright">
                 <div class="col align-center">
-                    <span>(с) {% now 'Y' %} Тимуроки</span><span class="sep">|</span><span><a href="/legal-agreement/">Пользовательское соглашение</a></span><span class="sep">|</span><span><a href="">О проекте Тимуроки</a></span>
+                    <span>(с) {% now 'Y' %} <a href="https://timuroki.ink" target="_blank">Тимуроки</a></span><span class="sep">|</span><span><a href="/legal-agreement/">Пользовательское соглашение</a></span>
                 </div>
             </div>
         </div>

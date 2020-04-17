@@ -3,9 +3,9 @@
 <div class="card">
     <div class="card-body">
         <h4 class="card-title">Регистрация</h4>
-        <form action="" method="post">{% csrf_token %}
+        <form id="register" action="" method="post">{% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" class="btn btn-primary btn-block" value="Зарегистрировать">
+            <input id="reg" type="submit" class="btn btn-primary" value="Зарегистрировать">
         </form>
     </div>
 </div>
