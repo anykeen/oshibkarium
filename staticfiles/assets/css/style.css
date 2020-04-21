@@ -444,6 +444,35 @@ p {
   display: none;
 }
 
+.done {
+  display: none;
+}
+
+form#request_editor {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+form#request_editor label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  color: #393F58;
+}
+form#request_editor input {
+  border-radius: 16px;
+  height: 48px;
+  width: 330px;
+  box-sizing: border-box;
+  border: 2px solid #393F58;
+  font-size: 24px;
+  padding: 7px;
+  margin-bottom: 1em;
+}
+
 a {
   text-decoration: none;
   color: #EF6C5A;

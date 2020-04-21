@@ -8,4 +8,5 @@ urlpatterns = [
     path('<slug:slug>/', views.page, name='page'),
     path('', views.index, name='index'),
     url(r'', include(('users.urls', 'users'), namespace='users')),
+    path('api/request-editor/', views.editor_request, name='editor_request'),
 ]

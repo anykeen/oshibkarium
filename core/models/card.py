@@ -13,12 +13,12 @@ class Example(models.Model):
         verbose_name = 'Пример'
 
 class Zalupa(models.Model):
-    zalupa = models.TextField('Залупа', blank=True)
+    zalupa = models.TextField('Оскорбление', blank=True)
     card = models.ForeignKey('Card', on_delete=models.SET_NULL, related_name='zalupas', blank = True, null = True)
 
     class Meta:
-        verbose_name_plural = 'Залупы'
-        verbose_name = 'Залупа'
+        verbose_name_plural = 'Оскорбления'
+        verbose_name = 'Оскорбление'
 
 class Relationship(models.Model):
     parent = models.ForeignKey('Card', related_name='parent_messages', on_delete=models.SET_NULL, null=True, blank=True)

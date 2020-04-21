@@ -41,8 +41,6 @@
 
         $("button.btn-small").click(function() {
             var email = $("input#MERGE0").val();
-            var log = $("form#subscription").serialize();
-            console.log(log);
             if(isValidEmailAddress(email)) {
                 $.ajax({
                     type: "POST",
@@ -56,7 +54,6 @@
 
         $("#reg").click(function() {
             if ($("input#id_is_subscribed").prop( "checked" )) {
-                console.log("ololo");
                 var email = $("input#id_email").val();
                 if(isValidEmailAddress(email)) {
                     $.ajax({
@@ -67,12 +64,28 @@
                     });
                 }
             }
-        })
+        });
+
+        $("#editor").click(function() {
+            var email = $("input#email").val();
+            var name = $("input#name").val();
+            if(isValidEmailAddress(email)) {
+                $.ajax({
+                    type:"POST",
+                    url: "/api/request-editor/",
+                    data: {
+                        email: email,
+                        name: name,
+                    },
+                    done: $("p.done").show(),
+                });
+            }
+        });
 
         $("a#scrolltocards").click(function(e) {
             e.preventDefault();
             $('html, body').animate({
-                scrollTop: $("#cards").offset().top
+                scrollTop: $("#pests").offset().top
             }, 1000);
         });
 
