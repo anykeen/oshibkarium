@@ -82,6 +82,28 @@
             }
         });
 
+        $("a#clarity_pos").click(function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                url: '/api/card/clarity-pos/',
+                data: { id: id },
+                done: $("p.thanx").show(),
+            });
+        });
+
+        $("a#clarity_neg").click(function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                url: '/api/card/clarity-neg/',
+                data: { id: id },
+                done: $("p.thanx").show(),
+            });
+        });
+
         $("a#scrolltocards").click(function(e) {
             e.preventDefault();
             $('html, body').animate({

@@ -9,4 +9,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     url(r'', include(('users.urls', 'users'), namespace='users')),
     path('api/request-editor/', views.editor_request, name='editor_request'),
+    path('api/card/clarity-pos/', views.clarity_pos, name='clarity_pos'),
+    path('api/card/clarity-neg/', views.clarity_neg, name='clarity_neg'),
 ]

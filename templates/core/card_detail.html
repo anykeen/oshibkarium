@@ -48,6 +48,20 @@
             </table>
             {% endfor %}
             {% endif %}
+            <div class="clarity">
+                <div class="row">
+                    <div class="col">
+                        <p>Вам было понятно описание этой ошибки?</p>
+                    </div>
+                   <div class="col btn-set">
+                        <a href id="clarity_pos" class="btn btn-primary" data-id="{{ card.id }}">Да</a>
+                        <a href id="clarity_neg" class="btn btn-primary" data-id="{{ card.id }}">Нет</a>
+                   </div>
+                   <div class="col">
+                       <p class="thanx">Спасибо, вы помогаете нам стать более лучше!</p>
+                   </div>
+                </div>
+            </div>
             <div class="promo">
                 <div class="row">
                     <div class="col-2">
