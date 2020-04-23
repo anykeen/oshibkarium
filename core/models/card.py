@@ -29,8 +29,6 @@ class Relationship(models.Model):
         verbose_name = 'Родственная ошибка'
 
 class Card(models.Model):
-    clarity_pos = models.IntegerField('Объяснение понятно', default=0)
-    clarity_neg = models.IntegerField('Объяснение не понятно', default=0)
     title = models.CharField('Заголовок', max_length=200)
     slug = models.CharField('Slug', max_length=200, unique = True)
     indexnum = models.IntegerField('Индекс', null=True)

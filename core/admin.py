@@ -30,8 +30,7 @@ class Zalrel(admin.TabularInline):
 
 class CardAdmin(admin.ModelAdmin):
     inlines = [Exrel, RelatedInline, Zalrel]
-    readonly_fields = ['clarity_pos', 'clarity_neg']
-    list_display = ['title', 'published', 'category', 'clarity_pos', 'clarity_neg']
+    list_display = ['title', 'published', 'category']
     actions = [all_card, complete_card, incomplete_card]
 
 
