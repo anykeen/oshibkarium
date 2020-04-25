@@ -13,7 +13,7 @@
             <div class="card mb-3">
                 {% if current.indexnum %}
                 <div class="index highlight">
-                    {{ current.indexnum }}
+                    {{ current.indexnum }}{{ current.category|make_list|first}}
                 </div>
                 {% endif %}
                 <div class="card-body p-3">
@@ -45,7 +45,7 @@
             <div class="card mb-3">
                 {% if finished.indexnum %}
                 <div class="index done">
-                    {{ finished.indexnum }}
+                    {{ finished.indexnum }}{{ finished.category|make_list|first}}
                 </div>
                 {% endif %}
                 <div class="card-body p-3">

@@ -32,11 +32,11 @@
                         <div class="index{% if card in user.profile.current.all %} highlight{% endif %}{% if card in user.profile.finished.all %} done{% endif %}">
                             {% if card in user.profile.current.all %}
                             <a href="" class="btn-remove tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
-                                <span class="tooltiptext">Убрать ошибку</span>
+                                <span class="tooltiptext">Убрать из «моих»</span>
                             </a>
                             {% else %}
                             <a href="" class="btn-add-current tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
-                                <span class="tooltiptext">Добавить ошибку</span>
+                                <span class="tooltiptext">Добавить к моим ошибкам</span>
                             </a>
                             {% endif %}
                         </div>

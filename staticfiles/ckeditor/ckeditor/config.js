@@ -11,7 +11,7 @@ CKEDITOR.editorConfig = function (config) {
 		'h1 h2 h3 h4 h5 p span blockquote strong em table tbody td tr ul li ol br s strike div form input button label;' +
 		'a[href,target];' +
 		'td(red,green);' +
-		'p(question, done);' +
+		'p(question, sent);' +
 		'div(answer);' +
 		'button(btn, btn-primary);' +
 		'button[id];' +

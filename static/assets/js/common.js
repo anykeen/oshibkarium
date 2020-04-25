@@ -116,11 +116,12 @@
             $(this).hide();
             $(this).next("p#hidden").show();
         });
-
-        $("p.question").click(function(e) {
-            e.preventDefault();
-            $(this).next("div.answer").toggle("slow");
-        })
+        if ($(window).width() < 769) {
+            $("p.question").click(function(e) {
+                e.preventDefault();
+                $(this).next("div.answer").toggle("slow");
+            })
+        }
 
     });
 
