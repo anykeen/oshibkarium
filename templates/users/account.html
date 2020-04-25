@@ -37,7 +37,7 @@
     </div>
     {% endif %}
     {% if user.profile.finished.all %}
-    <h2>Изгнанные:</h2>
+    <h2>Уже обезврежены:</h2>
     <div class="row mb-5">
         {% for finished in user.profile.finished.all %}
         {% if finished.published %}
