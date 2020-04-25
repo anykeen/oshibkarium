@@ -449,6 +449,9 @@ p {
   .answer {
     display: none;
   }
+  .answer:first-of-type {
+    display: block;
+  }
 }
 
 .sent {
@@ -595,6 +598,11 @@ h2 {
 .card .card-text {
   font-size: 16px;
   line-height: 130%;
+}
+@media screen and (max-width: 1440px) {
+  .card .card-text {
+    font-size: 14px;
+  }
 }
 
 .tooltip {
@@ -783,6 +791,18 @@ a#check {
   font-size: 16px;
   font-style: italic;
   display: none;
+}
+
+.exiled {
+  background: url("https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/banka_800x800.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.exiled img {
+  width: 70%;
+  margin-top: 2.25em !important;
+  margin-left: 0.5em;
 }
 
 footer {

@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block main %}
 <div class="container">
     <div class="row mt-5 mb-2">
-        <div class="col-12 col-md-5">
+        <div class="col-12 col-md-5 card-image">
             {% if card.image %}
             <div class="row">
                 <img class="mx-auto" src="{{ card.image.url }}" width="420"> 
@@ -10,7 +10,7 @@
             {% if user.is_authenticated %}
             <div class="row mt-3 button-set">
                 {% if card in user.profile.current.all %}
-                <a href="" class="btn btn-primary mx-auto btn-add-finish mb-3" data-id="{{ card.id }}">Этот ляпсус уже обезврежен!</a>
+                <a href="" class="btn btn-primary mx-auto btn-add-finish mb-3" data-id="{{ card.id }}">Всё, ляпсус обезврежен</a>
                 <a href="" class="btn btn-primary mx-auto btn-remove" data-id="{{ card.id }}">Убрать из моих ошибок</a>
                 {% elif card in user.profile.finished.all %}
                 <a href="" class="btn btn-primary mx-auto btn-add-current" data-id="{{ card.id }}">Вернуть в мои ошибки</a>
@@ -20,7 +20,7 @@
             </div>
             {% endif %}
         </div>
-        <div class="col-12 col-md-6 mx-auto card-detail">
+        <div class="col-12 col-md-6 card-detail">
             <div class="wrapper">
                 <h1>{{ card.title }}</h1>{% if card.indexnum %}<span class="card-index">{{ card.indexnum }}{{ card.category|make_list|first}}</span>{% endif %}
             </div>
@@ -51,7 +51,7 @@
             <div class="clarity">
                 <div class="row">
                     <div class="col">
-                        <p>Вам было понятно описание этой ошибки?</p>
+                        <p>Мы понятно разъяснили эту ошибку?</p>
                     </div>
                    <div class="col btn-set">
                         <a href id="clarity_pos" class="btn btn-primary" data-id="{{ card.id }}">Да</a>
@@ -71,7 +71,7 @@
                         <div class="promo-block">
                             <h3>Этот ляпсус — в ваших текстах?</h3>
                             <p>Самостоятельно найти все ошибки — трудно. Позовите опытного редактора, который на них укажет и проконсультирует вас. Или запишитесь на <a href="https://www.timuroki.ink/course" target="_blank">Тимуроки-курс</a>.</p>
-                            <a href="/faq#request_editor/" class="btn btn-primary">Позвать редактора</a>
+                            <a href="/faq/#request_editor" class="btn btn-primary">Позвать редактора</a>
                         </div>
                     </div>
                 </div>

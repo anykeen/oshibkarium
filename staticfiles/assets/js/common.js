@@ -77,7 +77,7 @@
                         email: email,
                         name: name,
                     },
-                    done: $("p.done").show(),
+                    done: $("p.sent").show(),
                 });
             }
         });

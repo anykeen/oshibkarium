@@ -55,7 +55,7 @@
                             <p class="card-text">{{ finished.excerpt }}</p>
                         </a>
                     </div>
-                    <div class="w-33">
+                    <div class="w-33 exiled">
                         {% if finished.image %}
                         <a href="{% url 'card_detail' slug=finished.slug %}">
                             <img class="mt-3" src="{{ finished.image.url }}"> {% endif %}
