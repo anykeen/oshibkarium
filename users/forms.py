@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 
 class UserForm(UserCreationForm):
-    email = forms.EmailField(max_length=200, help_text='Required')
+    email = forms.EmailField(max_length=200, help_text='Обязательное поле')
     is_subscribed = forms.BooleanField(label='Я не против получать рассылку про новых жителей и новые функции Ошибкариума', required=False)
     class Meta:
         model = User

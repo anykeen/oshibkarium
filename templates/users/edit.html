@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 {% block main %}
-<form method="post">
-    {% csrf_token %}
-    {{ user_form }}
-    <button type="submit">Save changes</button>
-  </form>
+<div class="container">
+  <div class="row mt-5 mb-2">
+      <div class="col-12 col-md-6 mx-auto">
+          <h1 class="align-center">Редактирование личной информации</h1>
+          <form method="post" class="mx-auto">
+            {% csrf_token %}
+            {{ user_form }}
+            <button class="btn btn-primary" type="submit">Сохранить</button>
+          </form>
+      </div>
+  </div>
+</div>
+
 {% endblock %}

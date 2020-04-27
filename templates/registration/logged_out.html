@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block main %}
-
-<p>You are logged out!</p>
-<a  href="{% url 'login' %}">Log in again</a>
+<div class="container">
+    <div class="row mt-5 mb-2">
+        <div class="col-12 col-md-6 mx-auto">
+            <p>Вы вышли</p>
+            <a  href="{% url 'login' %}">Войти снова</a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

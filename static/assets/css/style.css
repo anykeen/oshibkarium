@@ -286,6 +286,14 @@ body {
   }
 }
 
+.clearfix {
+  clear: both;
+}
+
+.d-block {
+  display: block;
+}
+
 .mx-auto {
   margin-right: auto;
   margin-left: auto;
@@ -331,6 +339,77 @@ body {
 
 .p-3 {
   padding: 1rem !important;
+}
+
+form {
+  width: 100%;
+  max-width: 288px;
+  display: flex;
+  flex-direction: column;
+}
+form label {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: -0.5px;
+  color: #393F58;
+  margin-bottom: 0.5em;
+}
+form input {
+  border-radius: 16px;
+  height: 48px;
+  width: 288px;
+  box-sizing: border-box;
+  border: 2px solid #393F58;
+  font-size: 24px;
+  padding: 7px;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: 48px;
+  font-family: "Montserrat", sans-serif;
+}
+@media screen and (max-width: 1024px) {
+  h1 {
+    font-size: 42px;
+  }
+}
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+form#register p {
+  margin: 0;
+  line-height: unset;
+}
+form#register p:last-of-type {
+  display: flex;
+  flex-direction: row-reverse;
+}
+form#register span.helptext {
+  font-size: 14px;
+  margin-bottom: 1em;
+  display: block;
+}
+form#register input#id_username, form#register input#id_email, form#register input#id_password2 {
+  margin-bottom: 0;
+}
+form#register input#id_is_subscribed {
+  width: 32px;
+  height: 32px;
+}
+form#register label[for=id_is_subscribed] {
+  font-family: "PT Serif", serif;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 nav {
@@ -460,7 +539,7 @@ p {
 
 form#request_editor {
   width: 100%;
-  max-width: 300px;
+  max-width: 288px;
   display: flex;
   flex-direction: column;
 }
@@ -476,7 +555,7 @@ form#request_editor label {
 form#request_editor input {
   border-radius: 16px;
   height: 48px;
-  width: 330px;
+  width: 288px;
   box-sizing: border-box;
   border: 2px solid #393F58;
   font-size: 24px;
@@ -491,15 +570,6 @@ a {
 
 .page-content {
   font-size: 20px;
-}
-
-h1 {
-  font-size: 48px;
-  font-family: "Montserrat", sans-serif;
-}
-
-h2 {
-  font-family: "Montserrat", sans-serif;
 }
 
 .align-center {
@@ -649,6 +719,10 @@ h2 {
   background-size: cover;
   margin: -60px 0 60px;
   height: calc(100vh + 60px);
+}
+
+.helptext {
+  font-size: 14px;
 }
 
 .wrapper {
@@ -853,6 +927,7 @@ footer input[type=email] {
   border: transparent;
   font-size: 24px;
   padding: 7px;
+  margin: 0 auto;
 }
 footer input[type=email]::placeholder {
   font-family: "Cormorant", serif;
@@ -865,6 +940,7 @@ footer input[type=email]::placeholder {
 footer form {
   margin-bottom: 1em;
   float: left;
+  width: auto;
 }
 @media screen and (max-width: 1024px) {
   footer form {

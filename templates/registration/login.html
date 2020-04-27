@@ -2,18 +2,18 @@
 {% load crispy_forms_tags %}
 
 {% block main %}
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Войти</h4>
-        <form method="post">
-            {% csrf_token %}
-            <input type="hidden" name="next" value="{{ next }}">
-
-            {{ form|crispy }}
-
-            <button type="submit" class="btn btn-primary btn-block">Войти</button>
-        </form>
-        <a href="/accounts/password_reset/">Забыли пароль?</a>
+<div class="container">
+    <div class="row mt-5 mb-2">
+        <div class="col-12 col-md-6 mx-auto">
+            <h1 class="align-center">Вход</h1>
+            <form method="post" class="mx-auto">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}">
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-primary btn-block">Войти</button>
+            </form>
+            <a class="align-center d-block mt-3" href="/accounts/password_reset/">Забыли пароль?</a>
+        </div>
     </div>
 </div>
 {% endblock %}
