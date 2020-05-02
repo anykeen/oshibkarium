@@ -122,6 +122,20 @@
                 $(this).next("div.answer").toggle("slow");
             })
         }
+        $("i.fa-bars").click(function(e) {
+            e.preventDefault();
+            $("i.fa-bars").hide();
+            $("i.fa-times").show();
+            $("nav.navbar").addClass("opened-menu");
+            $(".collapse").addClass("opened");
+        });
+        $("i.fa-times").click(function(e) {
+            e.preventDefault();
+            $("i.fa-times").hide();
+            $("i.fa-bars").show();
+            $("nav.navbar").removeClass("opened-menu");
+            $(".collapse").removeClass("opened");
+        })
 
     });
 

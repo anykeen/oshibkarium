@@ -24,7 +24,7 @@
     <div class="row" id="pests">
         {% for cat in cats %}
         <div class="col-3">
-            <h2>{{ cat.title }}</h2>
+            <h2 id="{{cat.slug}}">{{ cat.title }}</h2>
             {% for card in cat.cards.all|dictsort:"indexnum" %} {% if card.published %}
             <div class="card mb-3">
                 {% if card.indexnum %}
