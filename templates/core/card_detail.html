@@ -35,17 +35,19 @@
             {% if card.example %}
             {{ card.example | safe }} {% endif %}
             {% for example in card.examples.all %}
-            <table>
-                <tbody>
-                    <tr>
-                        <td><p>{{ example.wrong }}</p></td>
-                        <td>
-                            <a href="" id="check" class="btn">Нашли ошибку? Проверьте</a>
-                            <p id="hidden">{{ example.correct }}</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="example">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><p>{{ example.wrong }}</p></td>
+                            <td>
+                                <a href="" id="check" class="btn">Нашли ошибку? Проверьте</a>
+                                <p id="hidden">{{ example.correct }}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             {% endfor %}
             {% endif %}
             <div class="clarity">
