@@ -3,19 +3,49 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Cormorant:400i,600i|Montserrat:400,700&display=swap" rel="stylesheet">
-    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"-->
     <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script-->
     <script src="/static/assets/js/common.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <meta name="robots" content="noindex">
-    <title>Ошибкариум</title>
+    <title>
+        {% if request.path == "/" %}
+        Ошибкариум
+        {% else %}
+            {% if card.title %}
+                {{ card.title }} - Ошибкариум
+            {% elif page.title %}
+                {{ page.title }} - Ошибкариум
+            {% endif %}
+        {% endif %} 
+    </title>
+    <meta property="og:url" content=" {{ request.build_absolute_uri }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{% if request.path == "/" %}
+    Ошибкариум
+    {% else %}
+        {% if card.title %}
+            {{ card.title }} - Ошибкариум
+        {% elif page.title %}
+            {{ page.title }} - Ошибкариум
+        {% endif %}
+    {% endif %}" />
+    <meta property="og:description" content="{% if request.path == "/" %}
+    Это сервис для авторов и для редакторов, желающих упростить работу с авторами. Изгоняйте ляпсусы самостоятельно или c помощью специалистов.
+    {% else %}
+        {% if card.excerpt %}
+            {{ card.excerpt }}
+        {% elif page.content %}
+            {{ page.content }}
+        {% endif %}
+    {% endif %}" />
+    <meta property="og:image" content="{% if request.path == "/" %}
+    https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/main.png
+    {% else %}
+        {% if card.image %}
+            {{ card.image.url }}
+        {% endif %}
+    {% endif %}" />
 </head>
 
 <body>
