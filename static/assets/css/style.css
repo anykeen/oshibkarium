@@ -750,6 +750,7 @@ a {
   font-family: "Cormorant", serif;
   font-size: 24px;
   font-weight: 600;
+  font-style: italic;
 }
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   #pests .col-3 {
