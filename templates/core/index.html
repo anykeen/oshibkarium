@@ -7,7 +7,7 @@
                     <h1 class="mx-5">{{ page.title }}</h1>
                     <div class="page-content mx-5">{{ page.content | safe }}</div>
                     <div class="row mt-5">
-                        <div class="col mx-auto align-center">
+                        <div class="col mx-auto align-center buttons">
                             <a href="" class="btn btn-primary" id="scrolltocards">Ляпсусы? Это что?</a>
                             {% if user.is_authenticated %}{% else %}
                             <a class="nav-link" href="{% url 'register' %}">Зарегистрироваться</a>
