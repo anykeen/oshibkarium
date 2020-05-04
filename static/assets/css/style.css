@@ -1026,9 +1026,6 @@ a {
   display: none;
 }
 @media screen and (max-width: 1366px) and (min-width: 1280px) {
-  .card-detail table .example tr {
-    margin-bottom: 2em;
-  }
   .card-detail table tr {
     display: flex;
     flex-direction: column;
@@ -1039,14 +1036,11 @@ a {
   .card-detail table td a.btn {
     padding: 10px 12px;
   }
-  .card-detail table td:first-child p {
-    margin-bottom: unset;
+  .card-detail table td:nth-child(2) p {
+    margin-top: 24px !important;
   }
 }
 @media screen and (max-width: 767px) {
-  .card-detail table .example tr {
-    margin-bottom: 2em;
-  }
   .card-detail table tr {
     display: flex;
     flex-direction: column;
@@ -1058,8 +1052,8 @@ a {
   .card-detail table td a.btn {
     padding: 10px 12px;
   }
-  .card-detail table td:first-child p {
-    margin-bottom: unset;
+  .card-detail table td:nth-child(2) p {
+    margin-top: unset;
   }
 }
 .card-detail table a#check {
@@ -1130,6 +1124,16 @@ a {
   font-size: 16px;
   font-style: italic;
   display: none;
+}
+@media screen and (max-width: 1366px) and (min-width: 1280px) {
+  .card-detail .example tr {
+    margin-bottom: 2em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .card-detail .example tr {
+    margin-bottom: 2em;
+  }
 }
 
 .card-image img {
