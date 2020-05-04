@@ -1026,10 +1026,12 @@ a {
   display: none;
 }
 @media screen and (max-width: 1366px) and (min-width: 1280px) {
+  .card-detail table .example tr {
+    margin-bottom: 2em;
+  }
   .card-detail table tr {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2em;
   }
   .card-detail table td {
     width: 100%;
@@ -1037,12 +1039,17 @@ a {
   .card-detail table td a.btn {
     padding: 10px 12px;
   }
+  .card-detail table td:first-child p {
+    margin-bottom: unset;
+  }
 }
 @media screen and (max-width: 767px) {
+  .card-detail table .example tr {
+    margin-bottom: 2em;
+  }
   .card-detail table tr {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2em;
   }
   .card-detail table td {
     width: 100%;
@@ -1050,6 +1057,9 @@ a {
   }
   .card-detail table td a.btn {
     padding: 10px 12px;
+  }
+  .card-detail table td:first-child p {
+    margin-bottom: unset;
   }
 }
 .card-detail table a#check {
