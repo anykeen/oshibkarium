@@ -81,20 +81,20 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbarCollapsed">
                     {% if user.is_authenticated %}
-                        <a href="/accounts/{{ user.get_username }}/">Мои ошибки ({{ user.profile.current.all|length }})</span></a>
+                        <a href="/accounts/{{ user.get_username }}/"><h2>Мои ошибки ({{ user.profile.current.all|length }})</h2></a>
                     {% endif %}
                     <a href="#content"><h2>Содержание</h2></a>
                     <a href="#synt"><h2>Конструкции</h2></a>
                     <a href="#lex"><h2>Лексика</h2></a>
                     <a href="#misc"><h2>Разное</h2></a>
                     {% if user.is_authenticated %}
-                        <a href="{% url 'logout' %}">Выйти</a>
+                        <a href="{% url 'logout' %}"><h2>Выйти</h2></a>
                     {% else %}
-                        <i class="fa fa-circle" aria-hidden="true"></i>
+                    <i class="fa fa-circle" aria-hidden="true"></i>
                         <p class="align-center">Для работы со своими ошибками</p>
                         <div class="wrapper">
                             <a class="btn btn-mobile" href="{% url 'register' %}">Зарегистрироваться</a>
-                            <a id="login" href="{% url 'login' %}">Войти</span></a>
+                            <a id="login" href="{% url 'login' %}">Войти</a>
                         </div>
                     {% endif %}
                 </div>
