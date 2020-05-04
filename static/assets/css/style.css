@@ -432,7 +432,7 @@ h1 {
 }
 @media screen and (max-width: 768px) {
   h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
 }
 
@@ -916,11 +916,18 @@ a {
   }
 }
 
-.wrapper {
+.card-detail .wrapper {
   display: flex;
 }
-
-span.card-index {
+@media screen and (max-width: 768px) {
+  .card-detail .wrapper {
+    flex-direction: column-reverse;
+  }
+  .card-detail .wrapper h1 {
+    text-align: center;
+  }
+}
+.card-detail span.card-index {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   margin-left: 1rem;
@@ -930,57 +937,57 @@ span.card-index {
   padding: 0.25rem 0.75rem;
   margin-top: 2.35rem;
   height: max-content;
+  width: max-content;
 }
-
-span.subtitle {
+@media screen and (max-width: 768px) {
+  .card-detail span.card-index {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.card-detail span.subtitle {
   font-family: "Cormorant", serif;
   font-weight: 600;
   font-size: 32px;
   font-style: italic;
 }
-
-.card-detail > p, .card-detail li {
+@media screen and (max-width: 768px) {
+  .card-detail span.subtitle {
+    text-align: center;
+    font-size: 24px;
+    display: block;
+  }
+}
+.card-detail p, .card-detail li {
   margin-left: 32px;
   font-size: 20px;
   line-height: 150%;
 }
-
-.card-detail > h3 {
+@media screen and (max-width: 768px) {
+  .card-detail p, .card-detail li {
+    margin-left: unset;
+  }
+}
+.card-detail h3 {
   font-family: "Montserrat", sans-serif;
   font-size: 32px;
 }
-
+@media screen and (max-width: 768px) {
+  .card-detail h3 {
+    font-size: 24px;
+  }
+}
 .card-detail ol, .card-detail ul {
   margin-left: -1.25rem;
 }
-
-table {
+.card-detail table {
   width: 100%;
   background-color: #fff;
   border: 0 !important;
   border-radius: 10px;
   margin: 2.5em 0;
 }
-
-tr > td:only-child.red {
-  width: 100%;
-  color: #EF6C5A;
-}
-
-tr > td:only-child.green {
-  width: 100%;
-  color: #289800;
-}
-
-tr > td:first-child {
-  color: #EF6C5A;
-}
-
-tr > td:nth-child(2) {
-  color: #289800;
-}
-
-td {
+.card-detail table td {
   border: 0 !important;
   padding: 0 1.25em;
   width: 50%;
@@ -988,69 +995,118 @@ td {
   font-size: 24px;
   font-style: italic;
 }
-
-td > p {
+.card-detail table td:only-child.red {
+  width: 100%;
+  color: #EF6C5A;
+}
+.card-detail table td:only-child.green {
+  width: 100%;
+  color: #289800;
+}
+.card-detail table td:first-child {
+  color: #EF6C5A;
+}
+.card-detail table td:nth-child(2) {
+  color: #289800;
+}
+.card-detail table td p {
   font-family: "Cormorant", serif;
   font-size: 24px;
   font-style: italic;
+  margin-left: unset;
 }
-
-p#hidden {
+.card-detail table td p#hidden {
   display: none;
 }
-
-.promo {
+@media screen and (max-width: 1366px) and (min-width: 1280px) {
+  .card-detail table tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+  }
+  .card-detail table td {
+    width: 100%;
+  }
+  .card-detail table td a.btn {
+    padding: 10px 12px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .card-detail table tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+  }
+  .card-detail table td {
+    width: 100%;
+    padding: 0 0.75em;
+  }
+  .card-detail table td a.btn {
+    padding: 10px 12px;
+  }
+}
+.card-detail table a#check {
+  font-style: normal;
+}
+.card-detail .promo {
   width: 100%;
   border: 2px solid rgba(57, 63, 88, 0.5);
   padding: 0 1.25em 2.5em;
   border-radius: 10px;
 }
-
-.promo-block {
+.card-detail .promo .promo-block {
   padding: 0 1em;
 }
-.promo-block h3 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 32px;
+@media screen and (max-width: 767px) {
+  .card-detail .promo .promo-block {
+    padding: unset;
+  }
+}
+.card-detail .promo .promo-block h3 {
   margin-bottom: 0.5em;
 }
-.promo-block p {
+.card-detail .promo .promo-block p {
   font-family: "PT Serif", serif;
   font-size: 20px;
   line-height: 150%;
   margin-bottom: 1.5em;
 }
-
-img.promo-image {
+.card-detail .promo img.promo-image {
   max-width: 98px;
   margin-top: 2.5em;
 }
-
-.button-set {
-  display: grid;
+@media screen and (max-width: 767px) {
+  .card-detail .promo img.promo-image {
+    margin: 1.25em auto 0;
+  }
 }
-
-a#check {
-  font-style: normal;
+@media screen and (max-width: 767px) {
+  .card-detail .promo .col-2 {
+    display: flex;
+  }
 }
-
-.clarity {
+.card-detail .clarity {
   width: 100%;
   background-color: #393F58;
   padding: 0 2.5em 2.5em;
   border-radius: 10px;
   margin-bottom: 2.5em;
 }
-.clarity p {
+@media screen and (max-width: 767px) {
+  .card-detail .clarity {
+    padding: 0 1.25em 2.5em;
+  }
+}
+.card-detail .clarity p {
   color: #fff;
   font-family: "Cormorant", serif;
   font-size: 24px;
   font-style: italic;
 }
-.clarity a#clarity_pos {
+.card-detail .clarity a#clarity_pos {
   margin-right: 1em;
 }
-.clarity p.thanx {
+.card-detail .clarity p.thanx {
   color: #EF6C5A;
   font-family: "Cormorant", serif;
   font-size: 16px;
@@ -1058,15 +1114,9 @@ a#check {
   display: none;
 }
 
-@media screen and (max-width: 1300px) and (min-width: 1280px) {
-  .example tr {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2em;
-  }
-  .example td {
-    width: 100%;
-  }
+.card-image img {
+  width: 90%;
+  max-width: 420px;
 }
 
 .exiled {
@@ -1163,6 +1213,18 @@ footer .copyright a {
 }
 footer .copyright a:hover {
   color: #EF6C5A;
+}
+@media screen and (max-width: 375px) {
+  footer .copyright .col {
+    display: flex;
+    flex-direction: column;
+  }
+  footer .copyright .col .sep {
+    display: none;
+  }
+  footer .copyright .col span {
+    margin-bottom: 0.75em;
+  }
 }
 footer p {
   font-size: 14px;
