@@ -552,17 +552,12 @@ nav .opened {
   position: absolute;
   top: 60px;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 100px);
   left: 0;
   background-color: #EF6C5A;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-@media screen and (max-width: 767px) {
-  nav .opened {
-    justify-content: space-around;
-  }
 }
 nav .opened a,
 nav .opened h2 {
@@ -719,6 +714,12 @@ a {
 .page-content {
   font-size: 20px;
 }
+@media screen and (max-width: 768px) {
+  .page-content {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
 
 .align-center {
   text-align: center;
@@ -793,13 +794,18 @@ a {
 .card a {
   color: #393F58;
 }
-.card h3 {
+.card h3.card-title {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 18px;
 }
+@media screen and (max-width: 320px) {
+  .card h3.card-title {
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 1366px) and (min-width: 1280px) {
-  .card h3 {
+  .card h3.card-title {
     font-size: 16px;
   }
 }
@@ -925,6 +931,7 @@ a {
   }
   .card-detail .wrapper h1 {
     text-align: center;
+    font-size: 32px;
   }
 }
 .card-detail span.card-index {
@@ -1102,6 +1109,7 @@ a {
   font-family: "Cormorant", serif;
   font-size: 24px;
   font-style: italic;
+  margin-left: unset;
 }
 .card-detail .clarity a#clarity_pos {
   margin-right: 1em;
@@ -1117,6 +1125,9 @@ a {
 .card-image img {
   width: 90%;
   max-width: 420px;
+}
+.card-image .button-set {
+  display: grid;
 }
 
 .exiled {
@@ -1215,6 +1226,9 @@ footer .copyright a:hover {
   color: #EF6C5A;
 }
 @media screen and (max-width: 375px) {
+  footer .copyright {
+    margin-top: 40px;
+  }
   footer .copyright .col {
     display: flex;
     flex-direction: column;

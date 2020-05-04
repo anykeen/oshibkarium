@@ -9,7 +9,7 @@
     <div class="row mb-5">
         {% for current in user.profile.current.all %}
         {% if current.published %}
-        <div class="col-12 col-md-3">
+        <div class="col-6">
             <div class="card mb-3">
                 {% if current.indexnum %}
                 <div class="index highlight">
@@ -41,7 +41,7 @@
     <div class="row mb-5">
         {% for finished in user.profile.finished.all %}
         {% if finished.published %}
-        <div class="col-12 col-md-3">
+        <div class="col-6">
             <div class="card mb-3">
                 {% if finished.indexnum %}
                 <div class="index done">
