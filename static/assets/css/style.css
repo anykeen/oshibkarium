@@ -1084,6 +1084,7 @@ a {
 }
 .card-detail .promo img.promo-image {
   max-width: 98px;
+  max-height: 98px;
   margin-top: 2.5em;
 }
 @media screen and (max-width: 767px) {
