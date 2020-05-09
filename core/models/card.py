@@ -33,6 +33,8 @@ class Card(models.Model):
     clarity_neg = models.IntegerField('Объяснение не понятно', default=0, blank=True)
     title = models.CharField('Заголовок', max_length=200)
     slug = models.CharField('Slug', max_length=200, unique = True)
+    seo_title = models.CharField('СЕО-заголовок', max_length=200, blank = True)
+    seo_desc = models.CharField('СЕО-описание', max_length=200, blank = True)
     indexnum = models.IntegerField('Индекс', null=True)
     category = models.ForeignKey('Category', verbose_name = 'Категория', on_delete=models.PROTECT, related_name = 'cards')
     image = ImageField('Изображение', upload_to="img/", null=True, blank=True)

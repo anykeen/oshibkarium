@@ -9,6 +9,8 @@ body {
   margin: 0;
   background-color: #F2EFEC;
   color: #393F58;
+  min-height: 100vh;
+  position: relative;
 }
 
 .container {
@@ -395,6 +397,11 @@ body {
   padding: 1rem !important;
 }
 
+.py-5 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 form {
   width: 100%;
   max-width: 288px;
@@ -409,6 +416,7 @@ form label {
   letter-spacing: -0.5px;
   color: #393F58;
   margin-bottom: 0.5em;
+  display: block;
 }
 form input {
   border-radius: 16px;
@@ -464,6 +472,54 @@ form#register label[for=id_is_subscribed] {
   font-family: "PT Serif", serif;
   font-size: 14px;
   font-weight: normal;
+}
+
+.btn {
+  border-radius: 16px;
+  padding: 12px 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid #EF6C5A;
+  color: #EF6C5A;
+}
+
+.btn-primary {
+  background-color: #EF6C5A !important;
+  color: #fff !important;
+}
+
+a {
+  text-decoration: none;
+  color: #EF6C5A;
+}
+
+p {
+  font-size: 20px;
+  line-height: 150%;
+}
+
+form#yamoney {
+  display: flex;
+  flex-direction: row;
+  max-width: max-content;
+  flex-wrap: wrap;
+}
+form#yamoney label {
+  display: flex;
+  margin-right: 1.5em;
+  align-items: center;
+}
+form#yamoney input[type=text] {
+  width: 74px;
+  margin-bottom: 0;
+}
+form#yamoney input[type=radio] {
+  width: 24px;
+  margin-bottom: 0;
+}
+form#yamoney input[type=submit] {
+  width: max-content;
 }
 
 nav {
@@ -640,9 +696,11 @@ nav.scrolled a {
   }
 }
 
-p {
-  font-size: 20px;
-  line-height: 150%;
+.header {
+  height: calc(100vh - 60px);
+}
+.header .row {
+  height: inherit;
 }
 
 .question {
@@ -706,11 +764,6 @@ form#request_editor input {
   margin-bottom: 1em;
 }
 
-a {
-  text-decoration: none;
-  color: #EF6C5A;
-}
-
 .page-content {
   font-size: 20px;
 }
@@ -721,30 +774,26 @@ a {
   }
 }
 
+#page {
+  padding-bottom: 350px;
+}
+@media screen and (max-width: 1279px) {
+  #page {
+    padding-bottom: 650px;
+  }
+}
+
 .align-center {
   text-align: center;
 }
 
-.btn {
-  border-radius: 16px;
-  padding: 12px 16px;
+.heading {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  font-size: 14px;
-  border: 2px solid #EF6C5A;
-  color: #EF6C5A;
 }
 
-.btn-primary {
-  background-color: #EF6C5A !important;
-  color: #fff !important;
-}
-
-.header {
-  height: calc(100vh - 60px);
-}
-.header .row {
-  height: inherit;
+.blue {
+  color: #393F58;
 }
 
 #pests h2 {
@@ -920,6 +969,10 @@ a {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+#begging {
+  background-color: #fff;
 }
 
 .card-detail .wrapper {
@@ -1159,12 +1212,20 @@ a {
 }
 
 footer {
-  min-height: 60px;
   background-color: #393F58;
   color: #fff;
   font-size: 16px;
   padding-top: 22px;
   margin-top: 5rem;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 350px;
+}
+@media screen and (max-width: 1279px) {
+  footer {
+    height: 650px;
+  }
 }
 @media screen and (max-width: 1440px) {
   footer {
@@ -1221,7 +1282,7 @@ footer form {
   float: left;
   width: auto;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1279px) {
   footer form {
     float: none;
     margin: 0 auto 1em;
@@ -1266,7 +1327,7 @@ footer p.success {
   font-style: italic;
   color: #EF6C5A;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1279px) {
   footer .footer {
     text-align: center;
   }
