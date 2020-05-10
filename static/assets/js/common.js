@@ -158,7 +158,7 @@
             $("i.fa-bars").show();
             $("nav.navbar").removeClass("opened-menu");
             $(".collapse").removeClass("opened");
-        })
+        });
 
         $("#fb_s").click(function(e) {
             e.preventDefault();
@@ -166,7 +166,13 @@
                 method: 'share',
                 href: window.location.href,
             }, function(response){});
+        });
+
+        $("#tw_s").click(function(e) {
+            e.preventDefault();
+            window.open("https://twitter.com/intent/tweet?url=" + window.location.href, "", "width=400,height=500,top=200,left=400")
         })
+
     });
 
 })(jQuery);
