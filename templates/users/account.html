@@ -6,10 +6,10 @@
     <a class="heading" href="/accounts/password_change/">Сменить пароль</a>
     {% if user.profile.current.all %}
     <h2>Хочу прогнать из своих текстов:</h2>
-    <div class="row mb-5">
+    <div class="account-cards row mb-5 ">
         {% for current in user.profile.current.all %}
         {% if current.published %}
-        <div class="col-6">
+        <div class="col-3">
             <div class="card mb-3">
                 {% if current.indexnum %}
                 <div class="index highlight">
@@ -38,10 +38,10 @@
     {% endif %}
     {% if user.profile.finished.all %}
     <h2>Уже обезврежены:</h2>
-    <div class="row mb-5">
+    <div class="account-cards row mb-5">
         {% for finished in user.profile.finished.all %}
         {% if finished.published %}
-        <div class="col-6">
+        <div class="col-3">
             <div class="card mb-3">
                 {% if finished.indexnum %}
                 <div class="index done">

@@ -3,7 +3,7 @@
     <div class="row mt-5 mb-2">
         <div class="col-12 col-md-5 card-image">
             {% if card.image %}
-            <div class="row">
+            <div class="row{% if card in user.profile.finished.all %} exiled large{% endif %}">
                 <img class="mx-auto" src="{{ card.image.url }}"> 
             </div>
             {% endif %}
@@ -19,10 +19,15 @@
                  {% endif %}
             </div>
             {% endif %}
+            <div class="mt-3 buttons-net align-center">
+                <a id="fb_s"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a id="vk_s"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                <a id="tw_s"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </div>
         </div>
         <div class="col-12 col-md-6 card-detail">
             <div class="wrapper">
-                <h1>{{ card.title }}</h1>{% if card.indexnum %}<span class="card-index">{{ card.indexnum }}{{ card.category|make_list|first}}</span>{% endif %}
+                <h1>{{ card.title }}</h1>{% if card.indexnum %}<span class="card-index{% if card in user.profile.current.all %} highlight{% endif %}">{{ card.indexnum }}{{ card.category|make_list|first}}</span>{% endif %}
             </div>
             <span class="subtitle">{{ card.excerpt }}</span>
             {{ card.description | safe }}

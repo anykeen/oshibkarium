@@ -34,6 +34,29 @@
             });
         });
 
+        $("a.btn-add-current-index").click(function(e) {
+            console.log('ololo');
+            e.preventDefault();
+            var id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                url: '/api/user/add-card-current/',
+                data: { id: id },
+                done: $(this).removeClass("btn-add-current-index").addClass("btn-remove-index").parent(".index").addClass("highlight").find('.tooltiptext').text('Убрать из «моих»'),
+            });
+        });
+
+        $("a.btn-remove-index").click(function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                url: '/api/user/remove-card/',
+                data: { id: id },
+                done: $(this).removeClass("btn-remove-index").addClass("btn-add-current-index").parent(".index").removeClass("highlight").find('.tooltiptext').text('Добавить к моим ошибкам'),
+            });
+        });
+
         function isValidEmailAddress(emailAddress) {
             var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
             return pattern.test(emailAddress);
@@ -137,6 +160,13 @@
             $(".collapse").removeClass("opened");
         })
 
+        $("#fb_s").click(function(e) {
+            e.preventDefault();
+            FB.ui({
+                method: 'share',
+                href: window.location.href,
+            }, function(response){});
+        })
     });
 
 })(jQuery);

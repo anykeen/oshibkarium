@@ -29,13 +29,13 @@
             <div class="card mb-3">
                 {% if card.indexnum %}
                     {% if user.is_authenticated %}
-                        <div class="index{% if card in user.profile.current.all %} highlight{% endif %}{% if card in user.profile.finished.all %} done{% endif %}">
+                        <div class="index{% if card in user.profile.current.all %} highlight{% endif %}">
                             {% if card in user.profile.current.all %}
-                            <a href="" class="btn-remove tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
+                            <a href="" class="btn-remove-index tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
                                 <span class="tooltiptext">Убрать из «моих»</span>
                             </a>
                             {% else %}
-                            <a href="" class="btn-add-current tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
+                            <a href="" class="btn-add-current-index tooltip" data-id="{{ card.id }}">{{ card.indexnum }}{{ card.category|make_list|first}}
                                 <span class="tooltiptext">Добавить к моим ошибкам</span>
                             </a>
                             {% endif %}
@@ -53,7 +53,7 @@
                             <p class="card-text">{{ card.excerpt }}</p>
                         </a>
                     </div>
-                    <div class="w-33">
+                    <div class="w-33{% if card in user.profile.finished.all %} exiled{% endif %}">
                         {% if card.image %}
                         <a href="{% url 'card_detail' slug=card.slug %}">
                             <img class="mt-3" src="{{ card.image.url }}"> {% endif %}

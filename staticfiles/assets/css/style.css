@@ -511,7 +511,7 @@ form#yamoney label {
   align-items: center;
 }
 form#yamoney input[type=text] {
-  width: 74px;
+  width: 80px;
   margin-bottom: 0;
 }
 form#yamoney input[type=radio] {
@@ -886,12 +886,6 @@ form#request_editor input {
 .card .index a {
   color: #fff;
 }
-.card .highlight {
-  background-color: #EF4C24;
-}
-.card .done {
-  background-color: #393F58;
-}
 .card .card-text {
   font-size: 16px;
   line-height: 130%;
@@ -973,6 +967,10 @@ form#request_editor input {
 
 #begging {
   background-color: #fff;
+}
+
+.highlight {
+  background-color: #EF4C24 !important;
 }
 
 .card-detail .wrapper {
@@ -1198,6 +1196,20 @@ form#request_editor input {
 .card-image .button-set {
   display: grid;
 }
+.card-image .buttons-net a {
+  color: #393F58;
+  display: inline-block;
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.card-image .buttons-net a i {
+  font-size: 20px;
+  padding-top: 10px;
+}
 
 .exiled {
   background: url("https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/banka_800x800.png");
@@ -1208,7 +1220,31 @@ form#request_editor input {
 .exiled img {
   width: 65%;
   margin-top: 3em !important;
+  margin-bottom: 1em !important;
   margin-left: 1em;
+}
+
+.large img {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .account-cards .col-3 {
+    max-width: 50%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    margin: 1em 0 0;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 720px) {
+  .account-cards .col-3 {
+    max-width: 51%;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 51%;
+    flex: 0 0 51%;
+    margin: 0 auto;
+  }
 }
 
 footer {
