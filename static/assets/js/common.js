@@ -175,11 +175,11 @@
         $(".secondary-menu a").click(function(e) {
             e.preventDefault();
             var anchor = $(this).attr('href');
-            $(".secondary-menu a.active").removeClass("active");
-            $(this).addClass("active");
             $('html, body').animate({
                 scrollTop: $(anchor).offset().top - 80
-            }, 1000);
+            }, 500);
+            $(".secondary-menu a.active").removeClass("active");
+            $(this).addClass("active");
         });
 
         var content = $("#content").offset().top - 80;
