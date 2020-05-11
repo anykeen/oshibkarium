@@ -190,14 +190,13 @@
         if ($(window).width() < 769) {
             $(window).scroll(function() {
                 var winTop = $(window).scrollTop();
-                if(winTop >= content && winTop <= synt){
+                if(winTop >= content && winTop <= lex){
                     $(".secondary-menu a.active").removeClass("active");
                     $('#acon').addClass("active");
-                } else if(winTop >= synt && winTop <= lex){
-                    console.log('ololo2');
+                } else if(winTop >= lex && winTop <= synt){
                     $(".secondary-menu a.active").removeClass("active");
                     $('#asynt').addClass("active");
-                } else if(winTop >= lex && winTop <= misc){
+                } else if(winTop >= synt && winTop <= misc){
                     $(".secondary-menu a.active").removeClass("active");
                     $('#alex').addClass("active");
                 }  else if(winTop >= misc){
