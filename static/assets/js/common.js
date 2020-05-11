@@ -35,7 +35,6 @@
         });
 
         $("a.btn-add-current-index").click(function(e) {
-            console.log('ololo');
             e.preventDefault();
             var id = $(this).data('id');
             $.ajax({
@@ -171,7 +170,42 @@
         $("#tw_s").click(function(e) {
             e.preventDefault();
             window.open("https://twitter.com/intent/tweet?url=" + window.location.href, "", "width=400,height=500,top=200,left=400")
-        })
+        });
+
+        $(".secondary-menu a").click(function(e) {
+            e.preventDefault();
+            var anchor = $(this).attr('href');
+            $(".secondary-menu a.active").removeClass("active");
+            $(this).addClass("active");
+            $('html, body').animate({
+                scrollTop: $(anchor).offset().top - 80
+            }, 1000);
+        });
+
+        var content = $("#content").offset().top;
+        var synt = $("#synt").offset().top;
+        var lex = $("#lex").offset().top;
+        var misc = $("#misc").offset().top;
+
+        if ($(window).width() < 769) {
+            $(window).scroll(function() {
+                var winTop = $(window).scrollTop();
+                if(winTop >= content && winTop <= synt){
+                    $(".secondary-menu a.active").removeClass("active");
+                    $('#acon').addClass("active");
+                } else if(winTop >= synt && winTop <= lex){
+                    console.log('ololo2');
+                    $(".secondary-menu a.active").removeClass("active");
+                    $('#asynt').addClass("active");
+                } else if(winTop >= lex && winTop <= misc){
+                    $(".secondary-menu a.active").removeClass("active");
+                    $('#alex').addClass("active");
+                }  else if(winTop >= misc){
+                    $(".secondary-menu a.active").removeClass("active");
+                    $('#amisc').addClass("active");
+                }
+            });
+        };
 
     });
 

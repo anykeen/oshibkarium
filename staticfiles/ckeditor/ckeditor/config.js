@@ -12,6 +12,7 @@ CKEDITOR.editorConfig = function (config) {
 		'a[href,target];' +
 		'td(red,green);' +
 		'p(question, sent);' +
+		'p[id];' +
 		'div(answer);' +
 		'button(btn, btn-primary);' +
 		'button[id];' +

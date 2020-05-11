@@ -350,6 +350,10 @@ body {
   display: block;
 }
 
+.d-inline {
+  display: inline;
+}
+
 .mx-auto {
   margin-right: auto;
   margin-left: auto;
@@ -973,6 +977,39 @@ form#request_editor input {
   background-color: #EF4C24 !important;
 }
 
+.secondary-menu {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .secondary-menu {
+    display: flex;
+    overflow: scroll;
+  }
+}
+.secondary-menu a {
+  font-size: 24px;
+  font-style: italic;
+  font-family: "Cormorant", serif;
+  line-height: 130%;
+  margin: 1em;
+  color: #393F58;
+}
+.secondary-menu .active {
+  display: block;
+  border: 2px solid #EF6C5A;
+  border-radius: 32px;
+  padding: 0 1em;
+  margin: calc(1em - 2px) calc(0.5em - 2px);
+}
+
+.sticky-top {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: #F2EFEC;
+}
+
 .card-detail .wrapper {
   display: flex;
 }
@@ -1210,6 +1247,14 @@ form#request_editor input {
   font-size: 20px;
   padding-top: 10px;
 }
+@media screen and (min-width: 1280px) {
+  .card-image .image-wrapper {
+    position: sticky;
+    position: -webkit-sticky;
+    margin-bottom: 1em;
+    top: 1em;
+  }
+}
 
 .exiled {
   background: url("https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/banka_800x800.png");
@@ -1226,6 +1271,8 @@ form#request_editor input {
 
 .large img {
   margin-left: auto;
+  width: 50% !important;
+  margin-top: 6em !important;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 769px) {
