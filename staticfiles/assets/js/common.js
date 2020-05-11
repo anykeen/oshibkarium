@@ -182,10 +182,10 @@
             }, 1000);
         });
 
-        var content = $("#content").offset().top;
-        var synt = $("#synt").offset().top;
-        var lex = $("#lex").offset().top;
-        var misc = $("#misc").offset().top;
+        var content = $("#content").offset().top - 80;
+        var synt = $("#synt").offset().top - 80;
+        var lex = $("#lex").offset().top - 80;
+        var misc = $("#misc").offset().top - 80;
 
         if ($(window).width() < 769) {
             $(window).scroll(function() {
