@@ -195,10 +195,10 @@
                     $('#acon').addClass("active");
                 } else if(winTop >= lex && winTop <= synt){
                     $(".secondary-menu a.active").removeClass("active");
-                    $('#asynt').addClass("active");
+                    $('#alex').addClass("active");
                 } else if(winTop >= synt && winTop <= misc){
                     $(".secondary-menu a.active").removeClass("active");
-                    $('#alex').addClass("active");
+                    $('#asynt').addClass("active");
                 }  else if(winTop >= misc){
                     $(".secondary-menu a.active").removeClass("active");
                     $('#amisc').addClass("active");
