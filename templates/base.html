@@ -8,37 +8,16 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="/static/assets/js/common.js"></script>
     <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no">
-    <meta name="robots" content="noindex">
     <title>{% if request.path == "/" %}Ошибкариум{% else %}{% if card.seo_title %}{{ card.seo_title }} - Ошибкариум{% elif page.seo_title %}{{ page.seo_title }} - Ошибкариум{% else %}Ошибкариум{% endif %}{% endif %}</title>
     <meta name="description" content="{% if card.seo_desc %}{{ card.seo_desc }}{% elif page.seo_desc %}{{ page.seo_desc }}{% endif %}" />
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{% if request.path == "/" %}
-    Ошибкариум
-    {% else %}
-        {% if card.title %}
-            {{ card.title }} - Ошибкариум
-        {% elif page.title %}
-            {{ page.title }} - Ошибкариум
-        {% endif %}
-    {% endif %}" />
-    <meta property="og:description" content="{% if request.path == "/" %}
-    Это сервис для авторов и для редакторов, желающих упростить работу с авторами. Изгоняйте ляпсусы самостоятельно или c помощью специалистов.
-    {% else %}
-        {% if card.excerpt %}
-            {{ card.excerpt }}
-        {% elif page.content %}
-            {{ page.content }}
-        {% endif %}
-    {% endif %}" />
-    <meta property="og:image" content="{% if request.path == "/" %}
-    https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/main.png
-    {% else %}
-        {% if card.image %}
-            {{ card.image.url }}
-        {% endif %}
-    {% endif %}" />
+    <meta property="og:title" content="{% if request.path == "/" %}Ошибкариум{% else %}{% if card.title %}{{ card.title }} - Ошибкариум{% elif page.title %}{{ page.title }} - Ошибкариум{% endif %}{% endif %}" />
+    <meta property="og:description" content="{% if request.path == "/" %}Это сервис для авторов и для редакторов, желающих упростить работу с авторами. Изгоняйте ляпсусы самостоятельно или c помощью специалистов.{% else %}{% if card.excerpt %}{{ card.excerpt }}{% elif page.content %}{{ page.content }}{% endif %}{% endif %}" />
+    <meta property="og:image" content="{% if request.path == "/" %}https://lapsus.timuroki.ink/media/img/core/main.png{% else %}{% if card.image %}{{ card.image.url }}{% endif %}{% endif %}" />
 </head>
 
 <body>

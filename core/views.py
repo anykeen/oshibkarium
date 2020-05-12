@@ -29,7 +29,7 @@ def editor_request(request):
     email = request.POST.get('email')
 
     message = str('Запрос редактора от ' + name + ' с email ' + email )
-    send_mail('Запрос редактора', message, 'from@mail.me', ['timur@anykeen.ru',])
+    send_mail('Запрос редактора', message, 'noreply@lapsus.timuroki.ink', ['timur@anykeen.ru',])
 
     return render(request, 'core/page.html')
 
