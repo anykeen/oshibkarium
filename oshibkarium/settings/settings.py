@@ -84,6 +84,10 @@ WSGI_APPLICATION = 'oshibkarium.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
+        'NAME': 'c19803_lapsus_timuroki_ink',
+        'USER': 'c19803_lapsus_timuroki_ink',
+        'PASSWORD': 'JiWriViqcinav63',
+        'HOST': 'postgres.c19803.h2',
     }
 }
 
