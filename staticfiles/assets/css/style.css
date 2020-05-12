@@ -369,6 +369,11 @@ body {
   margin-bottom: auto;
 }
 
+.my-auto {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
 .m-0 {
   margin: 0 !important;
 }
@@ -523,6 +528,10 @@ form#yamoney input[type=radio] {
   margin-bottom: 0;
 }
 form#yamoney input[type=submit] {
+  width: max-content;
+}
+
+.max-content {
   width: max-content;
 }
 
