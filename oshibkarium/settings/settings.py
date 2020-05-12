@@ -169,9 +169,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL =  '/'
 
-MEDIA_ROOT = '/home/c19803/lapsus.timuroki.ru/www/media'
+MEDIA_ROOT = '/home/c19803/lapsus.timuroki.ink/www/media'
 MEDIA_URL = '/media/'
-STATIC_ROOT = '/home/c19803/lapsus.timuroki.ru/www/static'
+STATIC_ROOT = '/home/c19803/lapsus.timuroki.ink/www/static'
 STATIC_URL = '/static/'
 
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
