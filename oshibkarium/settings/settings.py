@@ -158,7 +158,12 @@ LOGGING = {
 }
 
 DEBUG_PROPAGATE_EXCEPTIONS = True
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.netangels.ru'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'noreply@lapsus.timuroki.ink'
+EMAIL_HOST_PASSWORD = 'REMOVED-see-settings_local'
 
 
 # Static files (CSS, JavaScript, Images)
