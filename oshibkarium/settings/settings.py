@@ -169,32 +169,34 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL =  '/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/home/c19803/lapsus.timuroki.ru/www/media'
 MEDIA_URL = '/media/'
+STATIC_ROOT = '/home/c19803/lapsus.timuroki.ru/www/static'
+STATIC_URL = '/static/'
 
-AWS_ACCESS_KEY_ID = 'REMOVED-see-settings_local'
-AWS_SECRET_ACCESS_KEY = 'REMOVED-see-settings_local'
-AWS_STORAGE_BUCKET_NAME = 'oshibkarium'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_URL = '/media/'
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_S3_REGION_NAME = 'eu-west-3'
-AWS_S3_SIGNATURE_VERSION = 's3v4'
-AWS_DEFAULT_ACL = None
+#AWS_ACCESS_KEY_ID = 'REMOVED-see-settings_local'
+#AWS_SECRET_ACCESS_KEY = 'REMOVED-see-settings_local'
+#AWS_STORAGE_BUCKET_NAME = 'oshibkarium'
 
-STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.' + AWS_S3_REGION_NAME + 'amazonaws.com/'
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+#AWS_S3_REGION_NAME = 'eu-west-3'
+#AWS_S3_SIGNATURE_VERSION = 's3v4'
+#AWS_DEFAULT_ACL = None
+
+#STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.' + AWS_S3_REGION_NAME + 'amazonaws.com/'
+#ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+#]
 
 CKEDITOR_CONFIGS = {
     "default": {
         "removePlugins": "stylesheetparser",
     }
 }
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-#django_heroku.settings(locals())
