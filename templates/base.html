@@ -2,6 +2,29 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166645463-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-166645463-1');
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+        ym(62815396, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/62815396" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Cormorant:400i,600i|Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
     <link rel="stylesheet" href="/static/assets/libs/font-awesome/css/font-awesome.min.css">
@@ -66,10 +89,10 @@
                         {% if user.is_authenticated %}
                             <a href="/accounts/{{ user.get_username }}/"><h2>Мои ошибки ({{ user.profile.current.all|length }})</h2></a>
                         {% endif %}
-                        <a href="#content"><h2>Содержание</h2></a>
-                        <a href="#synt"><h2>Конструкции</h2></a>
-                        <a href="#lex"><h2>Лексика</h2></a>
-                        <a href="#misc"><h2>Разное</h2></a>
+                        <a href="/#content"><h2>Содержание</h2></a>
+                        <a href="/#synt"><h2>Конструкции</h2></a>
+                        <a href="/#lex"><h2>Лексика</h2></a>
+                        <a href="/#misc"><h2>Разное</h2></a>
                         {% if user.is_authenticated %}
                             <a href="{% url 'logout' %}"><h2>Выйти</h2></a>
                         {% else %}
