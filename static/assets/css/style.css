@@ -947,7 +947,7 @@ form#request_editor input {
 }
 
 .bg {
-  background: url("https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/background.png");
+  background: url("https://lapsus.timuroki.ink/media/img/core/cover_large.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1266,7 +1266,7 @@ form#request_editor input {
 }
 
 .exiled {
-  background: url("https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/banka_800x800.png");
+  background: url("https://lapsus.timuroki.ink/media/img/core/banka_800x800.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
