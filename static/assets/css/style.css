@@ -962,6 +962,8 @@ form#request_editor input {
 @media screen and (orientation: portrait) {
   .bg {
     background: url("https://lapsus.timuroki.ink/media/img/core/cover_pad.png");
+    background-position: center;
+    background-size: contain;
   }
 }
 @media screen and (max-width: 375px) {
