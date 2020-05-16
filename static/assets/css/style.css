@@ -964,13 +964,13 @@ form#request_editor input {
     background: url("https://lapsus.timuroki.ink/media/img/core/cover_pad.png");
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 375px) {
   .bg {
     background: url("https://lapsus.timuroki.ink/media/img/core/cover_small.png");
-    height: calc(100vh * 2);
+    height: 1077px;
   }
   .bg h1 {
-    margin: 12em auto 0 !important;
+    margin: 10em auto 0 !important;
   }
 }
 
