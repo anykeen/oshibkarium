@@ -466,11 +466,13 @@ form#register p:last-of-type {
   flex-direction: row-reverse;
 }
 form#register span.helptext {
+  font-family: "PT Serif", serif;
   font-size: 14px;
+  font-weight: normal;
   margin-bottom: 1em;
   display: block;
 }
-form#register input#id_username, form#register input#id_email, form#register input#id_password2 {
+form#register input#id_username, form#register input#id_first_name, form#register input#id_email, form#register input#id_password1, form#register input#id_password2 {
   margin-bottom: 0;
 }
 form#register input#id_is_subscribed {
@@ -481,6 +483,25 @@ form#register label[for=id_is_subscribed] {
   font-family: "PT Serif", serif;
   font-size: 14px;
   font-weight: normal;
+}
+
+form#change input {
+  margin-bottom: 0;
+}
+form#change p {
+  margin-bottom: 1em;
+  margin-top: 0;
+  line-height: unset;
+}
+
+.errorlist {
+  font-family: "PT Serif", serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: #EF6C5A;
+  list-style: none;
+  padding: 0;
+  margin-top: -0.75em;
 }
 
 .btn {
@@ -977,7 +998,9 @@ form#request_editor input {
 }
 
 .helptext {
+  font-family: "PT Serif", serif;
   font-size: 14px;
+  font-weight: normal;
 }
 
 @media screen and (max-width: 400px) {
