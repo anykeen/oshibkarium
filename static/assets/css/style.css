@@ -954,13 +954,23 @@ form#request_editor input {
   margin: -60px 0 60px;
   height: calc(100vh + 60px);
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1366px) {
   .bg {
-    background: unset;
-    margin-top: auto;
+    background: url("https://lapsus.timuroki.ink/media/img/core/cover_medium.png");
+  }
+}
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .bg {
+    background: url("https://lapsus.timuroki.ink/media/img/core/cover_pad.png");
+  }
+}
+@media screen and (max-width: 600px) {
+  .bg {
+    background: url("https://lapsus.timuroki.ink/media/img/core/cover_small.png");
+    height: calc(100vh * 2);
   }
   .bg h1 {
-    margin: 0 auto !important;
+    margin: 12em auto 0 !important;
   }
 }
 
