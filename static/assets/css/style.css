@@ -1039,16 +1039,23 @@ form#request_editor input {
   font-size: 24px;
   font-style: italic;
   font-family: "Cormorant", serif;
+  border: 2px solid transparent;
   line-height: 130%;
-  margin: 1em;
+  margin: 0.5em 0;
+  padding: 0 0.5em;
   color: #393F58;
+}
+.secondary-menu a:first-child {
+  margin-left: 0;
 }
 .secondary-menu .active {
   display: block;
   border: 2px solid #EF6C5A;
   border-radius: 32px;
-  padding: 0 1em;
-  margin: calc(1em - 2px) calc(0.5em - 2px);
+  padding: 0 0.5em;
+}
+.secondary-menu .active:first-child {
+  margin-left: 0;
 }
 
 .sticky-top {
