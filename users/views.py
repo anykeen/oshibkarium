@@ -24,7 +24,7 @@ class UserRegisterFormView(FormView):
         email_subject = 'Добро пожаловать в Ошибкариум!'
         html_message = render_to_string('users/mail_template.html', {'username': form.cleaned_data.get('username')})
         plain_message = strip_tags(html_message)
-        from_email = 'noreply@lapsus.timuroki.ink'
+        from_email = 'Ошибкариум <noreply@lapsus.timuroki.ink>'
         to_email = form.cleaned_data.get('email')
         send_mail(email_subject, plain_message, 'noreply@lapsus.timuroki.ink', [to_email], html_message=html_message)
         return super(UserRegisterFormView, self).form_valid(form)
