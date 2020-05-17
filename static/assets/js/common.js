@@ -176,7 +176,7 @@
             e.preventDefault();
             var anchor = $(this).attr('href');
             $('html, body').animate({
-                scrollTop: $(anchor).offset().top - 90
+                scrollTop: $(anchor).offset().top - 75
             }, 500);
             $(".secondary-menu a.active").removeClass("active").delay(800);
             $(this).addClass("active").delay(800);
