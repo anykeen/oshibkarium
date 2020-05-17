@@ -164,6 +164,8 @@ EMAIL_HOST = 'mail.netangels.ru'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'noreply@lapsus.timuroki.ink'
 EMAIL_HOST_PASSWORD = 'REMOVED-see-settings_local'
+DEFAULT_FROM_EMAIL = 'Ошибкариум <noreply@lapsus.timuroki.ink>'
+
 
 
 # Static files (CSS, JavaScript, Images)
