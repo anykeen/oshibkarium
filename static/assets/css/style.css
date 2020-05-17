@@ -457,6 +457,11 @@ h2 {
   font-family: "Montserrat", sans-serif;
 }
 
+p {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+}
+
 form#register p {
   margin: 0;
   line-height: unset;
@@ -655,8 +660,6 @@ nav .opened h2 {
   font-family: "Cormorant", serif;
   font-size: 32px;
   font-style: italic;
-  margin-left: 1em;
-  margin-right: 1em;
   line-height: 16px;
 }
 @media screen and (width: 768px) {
@@ -677,6 +680,7 @@ nav .opened .btn-mobile {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-style: unset !important;
+  margin-right: 0.5em;
 }
 nav .opened .wrapper a#login {
   font-size: 14px;
@@ -809,11 +813,11 @@ form#request_editor input {
 }
 
 #page {
-  padding-bottom: 350px;
+  padding-bottom: 370px;
 }
 @media screen and (max-width: 1279px) {
   #page {
-    padding-bottom: 650px;
+    padding-bottom: 670px;
   }
 }
 
@@ -876,6 +880,7 @@ form#request_editor input {
 }
 .card a {
   color: #393F58;
+  display: inline-block;
 }
 .card h3.card-title {
   font-family: "Montserrat", sans-serif;
@@ -1251,12 +1256,13 @@ form#request_editor input {
 .card-detail .clarity a#clarity_pos {
   margin-right: 1em;
 }
-.card-detail .clarity p.thanx {
+.card-detail .clarity p.thanx, .card-detail .clarity p.thanx_neg {
   color: #EF6C5A;
   font-family: "Cormorant", serif;
   font-size: 16px;
   font-style: italic;
   display: none;
+  margin-bottom: -0.75em;
 }
 @media screen and (max-width: 1366px) and (min-width: 1280px) {
   .card-detail .example tr {

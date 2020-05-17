@@ -122,7 +122,7 @@
                 type: "POST",
                 url: '/api/card/clarity-neg/',
                 data: { id: id },
-                done: $("p.thanx").show(),
+                done: $("p.thanx_neg").show(),
             });
         });
 

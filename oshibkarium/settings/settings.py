@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
-#import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -167,12 +166,6 @@ EMAIL_HOST_PASSWORD = 'REMOVED-see-settings_local'
 DEFAULT_FROM_EMAIL = 'Ошибкариум <noreply@lapsus.timuroki.ink>'
 
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/dev/howto/static-files/
-#COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
-
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL =  '/'
 
@@ -180,27 +173,6 @@ MEDIA_ROOT = '/home/c19803/lapsus.timuroki.ink/www/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = '/home/c19803/lapsus.timuroki.ink/www/static'
 STATIC_URL = '/static/'
-
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-#MEDIA_URL = '/media/'
-
-#AWS_ACCESS_KEY_ID = 'REMOVED-see-settings_local'
-#AWS_SECRET_ACCESS_KEY = 'REMOVED-see-settings_local'
-#AWS_STORAGE_BUCKET_NAME = 'oshibkarium'
-
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-#AWS_S3_REGION_NAME = 'eu-west-3'
-#AWS_S3_SIGNATURE_VERSION = 's3v4'
-#AWS_DEFAULT_ACL = None
-
-#STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.' + AWS_S3_REGION_NAME + 'amazonaws.com/'
-#ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATIC_URL = '/static/'
-#STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static"),
-#]
 
 CKEDITOR_CONFIGS = {
     "default": {

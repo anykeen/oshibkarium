@@ -98,11 +98,10 @@
                         {% if user.is_authenticated %}
                             <a href="{% url 'logout' %}"><h2>Выйти</h2></a>
                         {% else %}
-                        <i class="fa fa-circle" aria-hidden="true"></i>
-                            <p class="align-center">Для работы со своими ошибками</p>
+                            <p class="align-center mb-3">Для работы со своими ошибками</p>
                             <div class="wrapper">
-                                <a class="btn btn-mobile" href="{% url 'register' %}">Зарегистрироваться</a>
-                                <a id="login" href="{% url 'login' %}">Войти</a>
+                                <a class="btn btn-mobile" href="{% url 'register' %}">Зарегистрируйтесь</a>
+                                <a id="login" href="{% url 'login' %}">Войдите</a>
                             </div>
                         {% endif %}
                     </div>

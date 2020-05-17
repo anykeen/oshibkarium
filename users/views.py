@@ -10,6 +10,7 @@ from django.core.exceptions import PermissionDenied
 from core.models import Card, Category
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -21,11 +22,11 @@ class UserRegisterFormView(FormView):
     def form_valid(self, form):
         form.save()
         email_subject = 'Добро пожаловать в Ошибкариум!'
-        message = render_to_string('users/mail_template.html', {'username': form.cleaned_data.get('username')})
-        #str('Вы только что зарегистрировались на сайте lapsus.timuroki.ink. Для входа используйте логин ' + form.cleaned_data.get('username') + ' и пароль, указанный при регистрации')
+        html_message = render_to_string('users/mail_template.html', {'username': form.cleaned_data.get('username')})
+        plain_message = strip_tags(html_message)
         from_email = 'noreply@lapsus.timuroki.ink'
         to_email = form.cleaned_data.get('email')
-        send_mail(email_subject, message, 'noreply@lapsus.timuroki.ink', [to_email])
+        send_mail(email_subject, plain_message, 'noreply@lapsus.timuroki.ink', [to_email], html_message=html_message)
         return super(UserRegisterFormView, self).form_valid(form)
 
     def form_invalid(self, form):
