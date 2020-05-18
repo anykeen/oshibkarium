@@ -805,6 +805,11 @@ nav.scrolled a {
     height: unset;
   }
 }
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  .header {
+    height: unset;
+  }
+}
 .header .row {
   height: inherit;
 }
@@ -1070,6 +1075,15 @@ form#request_editor input {
     margin: 0em auto 0 !important;
   }
 }
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  .bg {
+    background: unset;
+    height: max-content;
+  }
+  .bg h1 {
+    margin: 3em auto 0 !important;
+  }
+}
 
 .head-image {
   display: none;
@@ -1081,6 +1095,11 @@ form#request_editor input {
   .head-image img {
     width: 100vw;
     margin-top: 60px;
+  }
+}
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  .head-image {
+    display: none;
   }
 }
 
