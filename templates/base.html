@@ -42,7 +42,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{% if request.path == "/" %}Ошибкариум{% else %}{% if card.title %}{{ card.title }} - Ошибкариум{% elif page.title %}{{ page.title }} - Ошибкариум{% endif %}{% endif %}" />
     <meta property="og:description" content="{% if request.path == "/" %}Путеводитель по текстовым ошибкам. Для авторов и редакторов.{% else %}{% if card.excerpt %}{{ card.excerpt }}{% elif page.content %}{{ page.content }}{% endif %}{% endif %}" />
-    <meta property="og:image" content="{% if request.path == "/" %}https://lapsus.timuroki.ink/media/img/core/tvari.png{% else %}{% if card.image %}{{ card.image.url }}{% endif %}{% endif %}" />
+    <meta property="og:image" content="{% if request.path == "/" %}https://lapsus.timuroki.ink/media/img/core/backgroung.png{% else %}{% if card.image %}{{ card.image.url }}{% endif %}{% endif %}" />
 </head>
 
 <body>
