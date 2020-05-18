@@ -81,17 +81,26 @@
         <div class="row>">
             <div class="col-lg-8 col-10 mx-auto py-5">
                 <p class="align-center">Ошибкариум может расти, мы готовы поймать и описать больше ляпсусов, добавить тесты и мини-игры. Но всё это требует сил, и нам нужна ваша помощь. Расскажите о проекте друзьям, поддержите нас любой суммой, <a href="https://www.redbubble.com/people/anykeen/shop" target="_blank">купите артефакт</a> или <a href="https://www.patreon.com/timuroki?fan_landing=true" target="_blank">станьте покровителем Ошибкариума на Patreon</a>!</p>
-                <form class="mx-auto"id="yamoney" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                <form class="mx-auto" id="yamoney" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
                     <input type="hidden" name="receiver" value="41001372488885">
                     <input type="hidden" name="quickpay-form" value="donate">
                     <input type="hidden" name="targets" value="На развитие Ошибкариума">
-                    <label>Сумма&nbsp;<input type="text" name="sum" value="99" data-type="number">&nbsp;руб.</label>
+                    <label>Поддержать&nbsp;<input type="text" name="sum" value="101" data-type="number">&nbsp;рублём</label>
                     <div class="row">
-                        <label><input type="radio" name="paymentType" value="PC">Яндекс.Деньгами</label>
-                        <label><input type="radio" name="paymentType" value="AC">Банковской картой</label>
-                        <label><input type="radio" name="paymentType" value="MC">Баланс могильного</label>
+                        <div class="w-33">
+                            <input type="radio" name="paymentType" value="PC">
+                            <span class="checkmark pc"></span>
+                        </div>
+                        <div class="w-33">
+                            <input type="radio" name="paymentType" value="AC">
+                            <span class="checkmark ac"></span>
+                        </div>
+                        <div class="w-33">
+                            <input type="radio" name="paymentType" value="MC">
+                            <span class="checkmark mc"></span>
+                        </div>
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Перевести">
+                    <input class="btn btn-primary" type="submit" value="Поддержать">
                 </form>
             </div>
         </div>

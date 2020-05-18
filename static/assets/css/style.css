@@ -477,7 +477,11 @@ form#register span.helptext {
   margin-bottom: 1em;
   display: block;
 }
-form#register input#id_username, form#register input#id_first_name, form#register input#id_email, form#register input#id_password1, form#register input#id_password2 {
+form#register input#id_username,
+form#register input#id_first_name,
+form#register input#id_email,
+form#register input#id_password1,
+form#register input#id_password2 {
   margin-bottom: 0;
 }
 form#register input#id_is_subscribed {
@@ -540,21 +544,79 @@ form#yamoney {
   max-width: max-content;
   flex-wrap: wrap;
 }
+@media screen and (max-width: 1280px) {
+  form#yamoney {
+    flex-direction: column;
+  }
+}
+form#yamoney .row {
+  width: 410px;
+  margin: 0.4em 2.5em;
+}
+@media screen and (max-width: 425px) {
+  form#yamoney .row {
+    flex-direction: column;
+    width: 103px;
+    margin: auto;
+  }
+}
+form#yamoney .w-33 {
+  position: relative;
+  width: 33%;
+  height: 40px;
+}
 form#yamoney label {
   display: flex;
-  margin-right: 1.5em;
   align-items: center;
+}
+@media screen and (max-width: 1280px) {
+  form#yamoney label {
+    margin: 1em auto;
+  }
 }
 form#yamoney input[type=text] {
   width: 80px;
   margin-bottom: 0;
 }
 form#yamoney input[type=radio] {
-  width: 24px;
-  margin-bottom: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
 form#yamoney input[type=submit] {
   width: max-content;
+}
+@media screen and (max-width: 1280px) {
+  form#yamoney input[type=submit] {
+    margin: 1em auto;
+  }
+}
+form#yamoney .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 38px;
+  width: 103px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+form#yamoney .mc {
+  background-image: url("https://lapsus.timuroki.ink/media/img/core/mc.png");
+}
+form#yamoney .ac {
+  background-image: url("https://lapsus.timuroki.ink/media/img/core/ac.png");
+}
+form#yamoney .pc {
+  background-image: url("https://lapsus.timuroki.ink/media/img/core/pc.png");
+}
+form#yamoney .w-33:hover input ~ .checkmark {
+  background-color: rgba(239, 108, 90, 0.1);
+}
+form#yamoney .w-33 input:checked + .checkmark {
+  background-color: rgba(239, 108, 90, 0.1);
 }
 
 .max-content {
@@ -1431,7 +1493,7 @@ footer form {
 }
 footer .copyright {
   margin-top: 100px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   opacity: 0.5;
 }
 footer .copyright .sep {
