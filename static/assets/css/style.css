@@ -1020,6 +1020,7 @@ form#request_editor input {
 
 #begging {
   background-color: #fff;
+  margin-bottom: -20px;
 }
 
 .highlight {
