@@ -179,7 +179,6 @@
                 scrollTop: $(anchor).offset().top - 75
             }, 500);
             $(".secondary-menu a.active").removeClass("active").delay(800);
-            $(this).addClass("active").delay(800);
         });
 
         var content = $("#content").offset().top - 90;
