@@ -41,8 +41,8 @@
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{% if request.path == "/" %}Ошибкариум{% else %}{% if card.title %}{{ card.title }} - Ошибкариум{% elif page.title %}{{ page.title }} - Ошибкариум{% endif %}{% endif %}" />
-    <meta property="og:description" content="{% if request.path == "/" %}Это сервис для авторов и для редакторов, желающих упростить работу с авторами. Изгоняйте ляпсусы самостоятельно или c помощью специалистов.{% else %}{% if card.excerpt %}{{ card.excerpt }}{% elif page.content %}{{ page.content }}{% endif %}{% endif %}" />
-    <meta property="og:image" content="{% if request.path == "/" %}https://lapsus.timuroki.ink/media/img/core/main.png{% else %}{% if card.image %}{{ card.image.url }}{% endif %}{% endif %}" />
+    <meta property="og:description" content="{% if request.path == "/" %}Это справочник для авторов и для редакторов, желающих упростить работу с авторами. Травите ляпсусы самостоятельно или c помощью специалистов.{% else %}{% if card.excerpt %}{{ card.excerpt }}{% elif page.content %}{{ page.content }}{% endif %}{% endif %}" />
+    <meta property="og:image" content="{% if request.path == "/" %}https://lapsus.timuroki.ink/media/img/core/tvari.png{% else %}{% if card.image %}{{ card.image.url }}{% endif %}{% endif %}" />
 </head>
 
 <body>
