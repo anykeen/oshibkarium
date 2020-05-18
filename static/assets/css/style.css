@@ -436,6 +436,7 @@ form input {
   font-size: 24px;
   padding: 7px;
   margin-bottom: 1em;
+  outline: unset;
 }
 
 h1 {
@@ -799,6 +800,11 @@ nav.scrolled a {
 .header {
   height: calc(100vh - 60px);
 }
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+  .header {
+    height: unset;
+  }
+}
 .header .row {
   height: inherit;
 }
@@ -990,6 +996,7 @@ form#request_editor input {
 .card .card-text {
   font-size: 16px;
   line-height: 130%;
+  margin-left: 0;
 }
 @media screen and (max-width: 1440px) {
   .card .card-text {
@@ -1045,22 +1052,32 @@ form#request_editor input {
 @media screen and (max-width: 1366px) {
   .bg {
     background: url("https://lapsus.timuroki.ink/media/img/core/cover_medium.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
-@media screen and (orientation: portrait) {
+@media screen and (orientation: portrait) and (max-width: 1024px) {
   .bg {
-    background: url("https://lapsus.timuroki.ink/media/img/core/cover_pad.png");
-    background-position: center;
-    background-size: contain;
+    background: unset;
   }
 }
 @media screen and (max-width: 375px) {
-  .bg {
-    background: url("https://lapsus.timuroki.ink/media/img/core/cover_small.png");
-    height: 1077px;
-  }
   .bg h1 {
-    margin: 10em auto 0 !important;
+    margin: 4em auto 0 !important;
+  }
+}
+
+.head-image {
+  display: none;
+}
+@media screen and (orientation: portrait) and (max-width: 1024px) {
+  .head-image {
+    display: block;
+  }
+  .head-image img {
+    width: 100vw;
+    margin-top: 60px;
   }
 }
 
