@@ -32,6 +32,7 @@
     <script src="/static/assets/js/common.js"></script>
     <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
     <link rel="shortcut icon" type="image/png" href="/media/img/core/favicon.ico"/>
+    <link rel="canonical" href="https://lapsus.timuroki.ink"/>
     <meta charset="utf-8">
     <meta name="robots" content="all" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -41,7 +42,7 @@
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{% if request.path == "/" %}Ошибкариум{% else %}{% if card.title %}{{ card.title }} - Ошибкариум{% elif page.title %}{{ page.title }} - Ошибкариум{% endif %}{% endif %}" />
-    <meta property="og:description" content="{% if request.path == "/" %}Путеводитель по текстовым ошибкам. Для авторов и редакторов.{% else %}{% if card.excerpt %}{{ card.excerpt }}{% elif page.content %}{{ page.content }}{% endif %}{% endif %}" />
+    <meta property="og:description" content="{% if request.path == "/" %}Путеводитель по текстовым ошибкам. Для авторов и редакторов.{% else %}{% if card.excerpt %}{{ card.excerpt }}{% elif page.content %}{{ page.content|striptags }}{% endif %}{% endif %}" />
     <meta property="og:image" content="{% if request.path == "/" %}https://lapsus.timuroki.ink/media/img/core/background.png{% else %}{% if card.image %}{{ card.image.url }}{% endif %}{% endif %}" />
 </head>
 

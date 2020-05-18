@@ -477,6 +477,7 @@ form#register span.helptext {
   font-weight: normal;
   margin-bottom: 1em;
   display: block;
+  line-height: 16px;
 }
 form#register input#id_username,
 form#register input#id_first_name,
@@ -1119,7 +1120,7 @@ form#request_editor input {
   }
 }
 
-#begging {
+#donate {
   background-color: #fff;
   margin-bottom: -20px;
 }
