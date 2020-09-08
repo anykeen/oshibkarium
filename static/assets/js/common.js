@@ -4,6 +4,15 @@
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
     $(document).ready(function() {
+        $(".unauth").click(function(e) {
+            e.preventDefault();
+            $(".background").show();
+        });
+        $(".btn-close").click(function(e) {
+            e.preventDefault();
+            $(".background").hide();
+        });
+
         $("a.btn-add-current").click(function() {
             var id = $(this).data('id');
             $.ajax({

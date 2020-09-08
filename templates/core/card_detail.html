@@ -19,6 +19,10 @@
                     <a href="" class="btn btn-primary mx-auto btn-add-current" data-id="{{ card.id }}">Добавить к моим ошибкам</a>
                     {% endif %}
                 </div>
+                {% else %}
+                <div class="row mt-3 button-set">
+                    <a href="" class="btn btn-primary mx-auto unauth">Добавить к моим ошибкам</a>
+                </div>
                 {% endif %}
                 <div class="mt-3 buttons-net align-center">
                     <a id="fb_s"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -35,7 +39,7 @@
             {{ card.description | safe }}
             <h3>Как побороть ошибку?</h3>
             {{ card.fix | safe }} {% if card.info %}
-            <h3>Что еще прочесть?</h3>
+            <h3>Что ещё прочесть?</h3>
             {{ card.info | safe }} {% endif %} 
             {% if card.examples.all %}
             <h3>Дополнительные примеры (потренируйтесь на них)</h3>

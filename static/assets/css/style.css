@@ -1165,8 +1165,42 @@ form#request_editor input {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  z-index: 1020;
+  z-index: 99;
   background-color: #F2EFEC;
+}
+
+.unauth {
+  cursor: pointer;
+}
+
+.background {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  z-index: 101;
+}
+
+.login-popup {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 160px);
+  max-width: 320px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #f2efec 100%), #ffffff;
+  padding: 1em;
+  font-size: 16px;
+}
+
+.btn-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0.3em;
+  font-size: 2em;
 }
 
 .card-detail .wrapper {
