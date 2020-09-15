@@ -1,7 +1,12 @@
 {% extends 'base.html' %} {% block main %}
 <ul>
     {% for c in cliche %}
-    <li>{{ c.cliche }} -- {{ c.author }}</li>
+    <li>{{ c.cliche }} -- {{ c.author }}
+        {% if c in user.profile.voted.all %}
+            <span>already voted</span>
+        {% else %}
+            <a href="" class="pos-vote" data-id="{{ c.id }}">+</a> / <a href="" class="neg-vote" data-id="{{ c.id }}">-</a></li>
+        {% endif %}
     {% endfor %}
 </ul>
 {% endblock %}

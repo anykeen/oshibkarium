@@ -8,6 +8,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     current = models.ManyToManyField('core.Card', related_name='current')
     finished = models.ManyToManyField('core.Card', related_name='finished')
+    voted = models.ManyToManyField('cliche.Cliche', related_name='voted')
 
     class Meta:
         verbose_name_plural = 'Пользователи сайта'

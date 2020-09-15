@@ -13,6 +13,26 @@
             $(".background").hide();
         });
 
+        $("a.pos-vote").click(function() {
+            var id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                url: '/api/cliche/pos-vote/',
+                data: { id: id },
+                done: location.reload(),
+            });
+        });
+
+        $("a.neg-vote").click(function() {
+            var id = $(this).data('id');
+            $.ajax({
+                type: "POST",
+                url: '/api/cliche/neg-vote/',
+                data: { id: id },
+                done: location.reload(),
+            });
+        });
+        
         $("a.btn-add-current").click(function() {
             var id = $(this).data('id');
             $.ajax({
