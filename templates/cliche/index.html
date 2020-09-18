@@ -7,7 +7,7 @@
     </div>
     <button type="submit" class="btn btn-primary add-cliche">Submit</button>
   </form>
-{% if result %}
+{% if result is None %}
 Вот что мы нашли:
 {% for r in result %}
 <p>{{ r.cliche }} -- {{ r.author }}</p>
