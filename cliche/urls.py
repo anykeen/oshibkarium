@@ -6,4 +6,5 @@ urlpatterns = [
     path('stampalog/', views.cliche, name='cliche'),
     path('api/cliche/pos-vote/', views.pos_vote, name='pos_vote'),
     path('api/cliche/neg-vote/', views.neg_vote, name='neg_vote'),
+    path('api/cliche/add-cliche/', views.add_cliche, name='add_cliche'),
 ]

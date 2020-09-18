@@ -4,7 +4,7 @@ from django.apps import apps
 
 
 class ClicheAdmin(admin.ModelAdmin):
-    list_display = ['cliche', 'rating', 'author']
+    list_display = ['cliche', 'rating', 'author', 'status']
     readonly_fields = ['author', 'rating']
 
     def save_model(self, request, obj, form, change):

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, render_to_response
 from .models import Cliche
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import F
+from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
 
 def cliche(request):
     cliche = Cliche.objects.order_by('rating')
@@ -26,3 +27,16 @@ def neg_vote(request):
     request.user.profile.save()
 
     return render(request, 'cliche/index.html')
+
+@csrf_exempt
+def add_cliche(request):
+    cliche = request.POST.get('cliche')
+    author = request.user.profile
+    vector = SearchVector('cliche')
+    query = SearchQuery(cliche)
+    result = Cliche.objects.annotate(rank=SearchRank(vector, query)).order_by('id')
+    if not result:
+        Cliche.objects.create(cliche=cliche, author=author, status="pending")
+        return render(request, 'cliche/index.html')
+    else:
+        return render(request, 'cliche/index.html', {'result': result} )

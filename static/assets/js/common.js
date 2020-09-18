@@ -32,6 +32,20 @@
                 done: location.reload(),
             });
         });
+
+        $(".add-cliche").click(function() {
+            var author = $("input#author").val();
+            var cliche = $("input#cliche").val();
+            $.ajax({
+                type: "POST",
+                url: '/api/cliche/add-cliche/',
+                data: { 
+                    author: author,
+                    cliche: cliche, 
+                },
+                done: location.reload(),
+            });
+        });
         
         $("a.btn-add-current").click(function() {
             var id = $(this).data('id');
