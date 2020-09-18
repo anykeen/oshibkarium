@@ -8,7 +8,9 @@
     <button type="submit" class="btn btn-primary add-cliche">Submit</button>
   </form>
 {% if result %}
-<p>ololo</p>
+Вот что мы нашли:
+{% for r in result %}
+<p>{{ r.cliche }} -- {{ r.author }}</p>
 {% endif %}
 <ul>
     {% for c in cliche %}
