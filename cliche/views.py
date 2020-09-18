@@ -34,7 +34,7 @@ def add_cliche(request):
     author = request.user.profile
     vector = SearchVector('cliche')
     query = SearchQuery(cliche)
-    result = Cliche.objects.annotate(rank=SearchRank(vector, query)).order_by('id')
+    result = Cliche.objects.annotate(search=vector).filter(search=query)
     if not result:
         Cliche.objects.create(cliche=cliche, author=author, status="pending")
         return render(request, 'cliche/index.html')
