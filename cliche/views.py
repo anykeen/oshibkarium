@@ -38,7 +38,7 @@ def add_cliche(request):
     print(res)
     if res:
         #Cliche.objects.create(cliche=cliche, author=author, status="declined")
-        return render(request, 'cliche/index.html', {'res': res} )
+        return render(request, 'core/index.html')
     else:
         Cliche.objects.create(cliche=cliche, author=author, status="pending")
         return render(request, 'cliche/index.html', {'res': res})
