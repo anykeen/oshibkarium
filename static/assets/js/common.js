@@ -44,7 +44,7 @@
                     author: author,
                     cliche: cliche, 
                 },
-                done: location.reload(),
+                //done: location.reload(),
             });
         });
         
