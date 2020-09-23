@@ -53,7 +53,6 @@ def edit_profile(request, username):
             print('')
     else:
         user_form = UserFormEdit(instance=request.user)
-    print(user_form)
     return render(request, 'users/edit.html', {
         'user_form': user_form,
     })
