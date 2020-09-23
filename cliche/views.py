@@ -37,7 +37,7 @@ def add_cliche(request):
     result = Cliche.objects.annotate(search=vector).filter(search=query)
     print(result)
     if result:
-        Cliche.objects.create(cliche=cliche, author=author, status="declined")
+        #Cliche.objects.create(cliche=cliche, author=author, status="declined")
         return render(request, 'cliche/index.html', {'result': result} )
     else:
         Cliche.objects.create(cliche=cliche, author=author, status="pending")
