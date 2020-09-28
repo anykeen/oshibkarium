@@ -43,7 +43,7 @@
                 dataType: 'json',
                 success: function (data) {
                     if (data.already_exist) {
-                        console.log("A cliche already exists.");
+                        $(".results").show();
                     }
                 }
             });
