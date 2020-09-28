@@ -41,9 +41,9 @@
                 url: '/api/cliche/add-cliche/',
                 data: { cliche: cliche },
                 dataType: 'json',
-                done: function (data) {
+                success: function (data) {
                     if (data.already_exist) {
-                        alert("A cliche already exists.");
+                        console.log("A cliche already exists.");
                     }
                 }
             });
