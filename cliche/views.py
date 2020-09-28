@@ -3,6 +3,8 @@ from .models import Cliche
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import F
 from django.contrib.postgres.search import SearchQuery, SearchVector
+from django.http import JsonResponse
+
 
 def cliche(request):
     cliche = Cliche.objects.order_by('rating')
