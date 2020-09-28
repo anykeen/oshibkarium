@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, render_to_response
 from .models import Cliche
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import F
-from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
+from django.contrib.postgres.search import SearchQuery, SearchVector
 
 def cliche(request):
     cliche = Cliche.objects.order_by('rating')
@@ -34,11 +34,13 @@ def add_cliche(request):
     author = request.user.profile
     vector = SearchVector('cliche')
     query = SearchQuery(cliche)
-    res = Cliche.objects.annotate(search=vector).filter(search=query)
-    print(res)
-    if res:
+    data = {
+        'already_exist': Cliche.objects.annotate(search=vector).filter(search=query)
+    }
+    if data['already_exist']:
+        data['error_message'] = 'A cliche already exists.'
         Cliche.objects.create(cliche=cliche, author=author, status="declined")
     else:
         Cliche.objects.create(cliche=cliche, author=author, status="pending")
-        
-    return render(request, 'core/index.html')
+    
+    return JsonResponse(data)

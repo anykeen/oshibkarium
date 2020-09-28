@@ -35,16 +35,17 @@
 
         $(".add-cliche").click(function(e) {
             e.preventDefault();
-            var author = $("input#author").val();
             var cliche = $("input#cliche").val();
             $.ajax({
                 type: "POST",
                 url: '/api/cliche/add-cliche/',
-                data: { 
-                    author: author,
-                    cliche: cliche, 
-                },
-                done: location.reload(),
+                data: { cliche: cliche },
+                dataType: 'json',
+                done: function (data) {
+                    if (data.already_exist) {
+                        alert("A cliche already exists.");
+                    }
+                }
             });
         });
         
