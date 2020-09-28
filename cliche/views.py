@@ -3,7 +3,8 @@ from .models import Cliche
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import F
 from django.contrib.postgres.search import SearchQuery, SearchVector
-from django.http import JsonResponse
+from django.core import serializers
+from django.http import HttpResponse
 
 
 def cliche(request):
@@ -37,7 +38,7 @@ def add_cliche(request):
     vector = SearchVector('cliche')
     query = SearchQuery(cliche)
     data = {
-        'already_exist': list(Cliche.objects.annotate(search=vector).filter(search=query))
+        'already_exist': serializers.serialize('json', Cliche.objects.annotate(search=vector).filter(search=query))
     }
     if data['already_exist']:
         data['error_message'] = 'A cliche already exists.'
@@ -45,4 +46,4 @@ def add_cliche(request):
     else:
         Cliche.objects.create(cliche=cliche, author=author, status="pending")
     
-    return JsonResponse(data, safe=False)
+    return HttpResponse(data, content_type='application/json')
