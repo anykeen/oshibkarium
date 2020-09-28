@@ -37,7 +37,7 @@ def add_cliche(request):
     vector = SearchVector('cliche')
     query = SearchQuery(cliche)
     data = {
-        'already_exist': Cliche.objects.annotate(search=vector).filter(search=query)
+        'already_exist': list(Cliche.objects.annotate(search=vector).filter(search=query))
     }
     if data['already_exist']:
         data['error_message'] = 'A cliche already exists.'
@@ -45,4 +45,4 @@ def add_cliche(request):
     else:
         Cliche.objects.create(cliche=cliche, author=author, status="pending")
     
-    return JsonResponse(data)
+    return JsonResponse(data, safe=False)

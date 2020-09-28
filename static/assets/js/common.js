@@ -33,8 +33,7 @@
             });
         });
 
-        $(".add-cliche").click(function(e) {
-            e.preventDefault();
+        $(".add-cliche").click(function() {
             var cliche = $("input#cliche").val();
             $.ajax({
                 type: "POST",
