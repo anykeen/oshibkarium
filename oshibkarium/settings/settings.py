@@ -40,8 +40,6 @@ INSTALLED_APPS = [
     'users',
     'ckeditor',
     'crispy_forms',
-    'storages',
-    'boto3',
     'sorl.thumbnail',
 ]
 
