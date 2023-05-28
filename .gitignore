@@ -6,6 +6,8 @@
 /www/
 /media/
 /boilerplate/
+/__pycache__/
+/oshi/
 *_local.*
 *.sqlite3
 *.pyc
