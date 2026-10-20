@@ -4,35 +4,21 @@
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
     $(document).ready(function() {
-        $("a.btn-add-current").click(function() {
-            var id = $(this).data('id');
-            $.ajax({
-                type: "POST",
-                url: '/api/user/add-card-current/',
-                data: { id: id },
-                done: location.reload(),
-            });
-        });
+        // Кнопки на карточке: сначала дождаться ответа сервера, потом перезагрузить страницу.
+        // Раньше location.reload() вызывался сразу (как значение поля done), а ссылка href=""
+        // сама уводила на ту же страницу — браузер обрывал POST, и ничего не сохранялось.
+        function cardAction(url) {
+            return function(e) {
+                e.preventDefault();
+                $.post(url, { id: $(this).data('id') }).always(function() {
+                    location.reload();
+                });
+            };
+        }
 
-        $("a.btn-add-finish").click(function() {
-            var id = $(this).data('id');
-            $.ajax({
-                type: "POST",
-                url: '/api/user/add-card-finish/',
-                data: { id: id },
-                done: location.reload(),
-            });
-        });
-
-        $("a.btn-remove").click(function() {
-            var id = $(this).data('id');
-            $.ajax({
-                type: "POST",
-                url: '/api/user/remove-card/',
-                data: { id: id },
-                done: location.reload(),
-            });
-        });
+        $("a.btn-add-current").click(cardAction('/api/user/add-card-current/'));
+        $("a.btn-add-finish").click(cardAction('/api/user/add-card-finish/'));
+        $("a.btn-remove").click(cardAction('/api/user/remove-card/'));
 
         $("a.btn-add-current-index").click(function(e) {
             e.preventDefault();
