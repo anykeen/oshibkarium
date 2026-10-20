@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block main %}
+<form>
+    <div class="form-group">
+      <label for="cliche">Штамп</label>
+      <input type="text" class="form-control" id="cliche">
+    </div>
+    <button type="submit" class="btn btn-primary add-cliche">Submit</button>
+  </form>
+<div class="results" style="display:none">
+Вот что мы нашли:
+{% for r in res %}
+<p>{{ r.cliche }} -- {{ r.author }}</p>
+{% empty %}
+<p>ololo</p>
+{% endfor %}
+</div>
+<ul>
+    {% for c in cliche %}
+    <li>{{ c.cliche }} -- {{ c.author }}
+        {% if c in user.profile.voted.all %}
+            <span>already voted</span>
+        {% else %}
+            <a href="" class="pos-vote" data-id="{{ c.id }}">+</a> / <a href="" class="neg-vote" data-id="{{ c.id }}">-</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

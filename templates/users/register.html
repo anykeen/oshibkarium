@@ -1,15 +1,29 @@
 {% extends  'base.html' %}
 {% block main %}
 <div class="container">
-    <div class="row mt-5 mb-2">
+    <div class="row mt-5 mb-3">
         <div class="col-12 col-md-6 mx-auto">
             <h1 class="align-center">Регистрация</h1>
             <form id="register" method="post" class="mx-auto">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <input id="reg" type="submit" class="btn btn-primary" value="Зарегистрировать">
+                {{ form.non_field_errors }}
+
+                {% for hidden_field in form.hidden_fields %}
+                    {{ hidden_field.errors }}
+                    {{ hidden_field }}
+                {% endfor %}
+                {% for field in form.visible_fields %}
+                <p>
+                    <label>{{ field.label_tag }}</label>
+                    {{ field }}
+                    <span class="helptext">{{ field.help_text }}</span>
+                    <span class="errortext">{{ field.errors }}</span>
+                </p>
+                {% endfor %}
+                <input id="reg" type="submit" class="btn btn-primary" value="Зарегистрироваться">
             </form>
-            <p class="align-center mt-3 helptext">Отправляя данные с помощью этой формы вы подтверждаете свое согласие с нашим <a href="/legal-agreement/" target="_blank">пользовательским соглашением</a></p>
+            <p class="align-center mt-3 helptext">Регистрируясь, вы принимаете наше <a href="/legal-agreement/" target="_blank">пользовательское соглашение</a>.</p>
+            <p class="align-center helptext">Не получается? Напишите на <a href="mailto:team@lapsus.timuroki.ink">team@lapsus.timuroki.ink</a>, приложив скриншот ошибки.</p>
         </div>
     </div>
 </div>

@@ -29,3 +29,8 @@
 *~
 /*.sqlite3
 *.sqlite3
+
+# Окружение и кэши
+venv/
+.venv/
+__pycache__/

@@ -2,43 +2,48 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166645463-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-166645463-1');
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+        ym(62815396, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/62815396" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Cormorant:400i,600i|Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
     <link rel="stylesheet" href="/static/assets/libs/font-awesome/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="/static/assets/js/common.js"></script>
     <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
+    <link rel="canonical" href="{{ request.build_absolute_uri }}"/>
+    <meta charset="utf-8">
+    <meta name="robots" content="all" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no">
-    <meta name="robots" content="noindex">
     <title>{% if request.path == "/" %}Ошибкариум{% else %}{% if card.seo_title %}{{ card.seo_title }} - Ошибкариум{% elif page.seo_title %}{{ page.seo_title }} - Ошибкариум{% else %}Ошибкариум{% endif %}{% endif %}</title>
     <meta name="description" content="{% if card.seo_desc %}{{ card.seo_desc }}{% elif page.seo_desc %}{{ page.seo_desc }}{% endif %}" />
     <meta property="og:url" content="{{ request.build_absolute_uri }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{% if request.path == "/" %}
-    Ошибкариум
-    {% else %}
-        {% if card.title %}
-            {{ card.title }} - Ошибкариум
-        {% elif page.title %}
-            {{ page.title }} - Ошибкариум
-        {% endif %}
-    {% endif %}" />
-    <meta property="og:description" content="{% if request.path == "/" %}
-    Это сервис для авторов и для редакторов, желающих упростить работу с авторами. Изгоняйте ляпсусы самостоятельно или c помощью специалистов.
-    {% else %}
-        {% if card.excerpt %}
-            {{ card.excerpt }}
-        {% elif page.content %}
-            {{ page.content }}
-        {% endif %}
-    {% endif %}" />
-    <meta property="og:image" content="{% if request.path == "/" %}
-    https://oshibkarium.s3.eu-west-3.amazonaws.com/img/core/main.png
-    {% else %}
-        {% if card.image %}
-            {{ card.image.url }}
-        {% endif %}
-    {% endif %}" />
+    <meta property="og:title" content="{% if request.path == "/" %}Ошибкариум{% else %}{% if card.title %}{{ card.title }} - Ошибкариум{% elif page.title %}{{ page.title }} - Ошибкариум{% endif %}{% endif %}" />
+    <meta property="og:description" content="{% if request.path == "/" %}Путеводитель по текстовым ошибкам. Для авторов и редакторов.{% else %}{% if card.excerpt %}{{ card.excerpt }}{% elif page.content %}{{ page.content|striptags }}{% endif %}{% endif %}" />
+    <meta property="og:image" content="{% if request.path == "/" %}https://lapsus.timuroki.ink/media/img/core/background.png{% else %}{% if card.image %}{{ card.image.url }}{% endif %}{% endif %}" />
 </head>
 
 <body>
@@ -87,18 +92,17 @@
                         {% if user.is_authenticated %}
                             <a href="/accounts/{{ user.get_username }}/"><h2>Мои ошибки ({{ user.profile.current.all|length }})</h2></a>
                         {% endif %}
-                        <a href="#content"><h2>Содержание</h2></a>
-                        <a href="#synt"><h2>Конструкции</h2></a>
-                        <a href="#lex"><h2>Лексика</h2></a>
-                        <a href="#misc"><h2>Разное</h2></a>
+                        <a href="/#content"><h2>Содержание</h2></a>
+                        <a href="/#synt"><h2>Конструкции</h2></a>
+                        <a href="/#lex"><h2>Лексика</h2></a>
+                        <a href="/#misc"><h2>Разное</h2></a>
                         {% if user.is_authenticated %}
                             <a href="{% url 'logout' %}"><h2>Выйти</h2></a>
                         {% else %}
-                        <i class="fa fa-circle" aria-hidden="true"></i>
-                            <p class="align-center">Для работы со своими ошибками</p>
+                            <p class="align-center mb-3">Для работы со своими ошибками</p>
                             <div class="wrapper">
-                                <a class="btn btn-mobile" href="{% url 'register' %}">Зарегистрироваться</a>
-                                <a id="login" href="{% url 'login' %}">Войти</a>
+                                <a class="btn btn-mobile" href="{% url 'register' %}">Зарегистрируйтесь</a>
+                                <a id="login" href="{% url 'login' %}">Войдите</a>
                             </div>
                         {% endif %}
                     </div>
@@ -106,6 +110,42 @@
             </nav>
         </div>
         {% block main %} {% endblock %}
+        <div id="donate" class="container-fluid">
+            <div class="container">
+                <div class="row>">
+                    <div class="col-lg-8 col-10 mx-auto py-5">
+                        <p class="align-center">Ошибкариум может расти, мы готовы поймать и описать больше ляпсусов, добавить тесты и мини-игры. Но всё это требует сил, и нам нужна ваша помощь. Расскажите о проекте друзьям, поддержите нас любой суммой, <a href="https://www.redbubble.com/people/anykeen/shop" target="_blank">купите артефакт</a> или <a href="https://www.patreon.com/timuroki?fan_landing=true" target="_blank">станьте покровителем Ошибкариума на Patreon</a>!</p>
+                        <form class="mx-auto" id="yamoney" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                            <input type="hidden" name="receiver" value="41001372488885">
+                            <input type="hidden" name="quickpay-form" value="donate">
+                            <input type="hidden" name="targets" value="На развитие Ошибкариума">
+                            <label>Поддержать&nbsp;<input type="text" name="sum" value="101" data-type="number">&nbsp;рублём</label>
+                            <div class="row">
+                                <div class="w-33">
+                                    <label>
+                                        <input type="radio" name="paymentType" value="PC">
+                                        <span class="checkmark pc"></span>
+                                    </label>
+                                </div>
+                                <div class="w-33">
+                                    <label>
+                                        <input type="radio" name="paymentType" value="AC">
+                                        <span class="checkmark ac"></span>
+                                    </label>
+                                </div>
+                                <div class="w-33">
+                                    <label>
+                                        <input type="radio" name="paymentType" value="MC">
+                                        <span class="checkmark mc"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <input class="btn btn-primary" type="submit" value="Поддержать">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <div class="container">
@@ -146,6 +186,12 @@
             </div>
         </div>
     </footer>
+    <div class="background">
+        <div class="login-popup">
+            <div class="btn-close">×</div>
+            <div class="login-popup__body">Чтобы вести личную коллекцию ляпсусов, <a href="/accounts/login/">войдите в Ошибкариум</a> как зарегистрированный пользователь.</div>
+        </div>
+    </div>
 </body>
 
 </html>

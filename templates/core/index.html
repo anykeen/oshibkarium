@@ -1,6 +1,9 @@
 {% extends 'base.html' %} {% block main %}
 <div class="bg">
     <div class="container-fluid">
+        <div class="head-image">
+            <img src="https://lapsus.timuroki.ink/media/img/core/cover_pad.png">
+        </div>
         <div class="container header">
             <div class="row">
                 <div class="col-lg-6 col-md-7 col-10 mx-auto my-auto align-center">
@@ -51,7 +54,7 @@
                             {% endif %}
                         </div>
                     {% else %}
-                        <div class="index">
+                        <div class="index unauth">
                             {{ card.indexnum }}{{ card.category|make_list|first}}
                         </div>
                     {% endif %}
@@ -74,27 +77,6 @@
             {% endif %} {% endfor %}
         </div>
         {% endfor %}
-    </div>
-</div>
-<div id="begging" class="container-fluid">
-    <div class="container">
-        <div class="row>">
-            <div class="col-lg-8 col-10 mx-auto py-5">
-                <p class="align-center">Ошибкариум может расти, мы готовы поймать и описать больше ляпсусов, добавить тесты и мини-игры. Но всё это требует сил, и нам нужна ваша помощь. Расскажите о проекте друзьям, отправьте Рубли Поддержки или станьте покровителем Ошибкариума на Patreon!</p>
-                <form class="mx-auto"id="yamoney" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
-                    <input type="hidden" name="receiver" value="41001372488885">
-                    <input type="hidden" name="quickpay-form" value="donate">
-                    <input type="hidden" name="targets" value="На развитие Ошибкариума">
-                    <label>Сумма&nbsp;<input type="text" name="sum" value="99" data-type="number">&nbsp;руб.</label>
-                    <div class="row">
-                        <label><input type="radio" name="paymentType" value="PC">Яндекс.Деньгами</label>
-                        <label><input type="radio" name="paymentType" value="AC">Банковской картой</label>
-                        <label><input type="radio" name="paymentType" value="MC">Баланс могильного</label>
-                    </div>
-                    <input class="btn btn-primary" type="submit" value="Перевести">
-                </form>
-            </div>
-        </div>
     </div>
 </div>
 {% endblock %}
