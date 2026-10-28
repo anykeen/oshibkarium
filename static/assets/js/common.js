@@ -4,6 +4,16 @@
         $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
     });
     $(document).ready(function() {
+        // Всплывашка «войдите в Ошибкариум» (.background в base.html) для незарегистрированных.
+        $(".unauth").click(function(e) {
+            e.preventDefault();
+            $(".background").show();
+        });
+        $(".btn-close").click(function(e) {
+            e.preventDefault();
+            $(".background").hide();
+        });
+
         // Кнопки на карточке: сначала дождаться ответа сервера, потом перезагрузить страницу.
         // Раньше location.reload() вызывался сразу (как значение поля done), а ссылка href=""
         // сама уводила на ту же страницу — браузер обрывал POST, и ничего не сохранялось.
