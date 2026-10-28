@@ -178,29 +178,33 @@
             $(this).addClass("active");
         });
 
-        var content = $("#content").offset().top - 80;
-        var synt = $("#synt").offset().top - 80;
-        var lex = $("#lex").offset().top - 80;
-        var misc = $("#misc").offset().top - 80;
+        // Подсветка разделов в меню при прокрутке — только на главной: на остальных страницах
+        // блоков #content/#synt/#lex/#misc нет, и .offset() падал с TypeError.
+        if ($("#content").length) {
+            var content = $("#content").offset().top - 80;
+            var synt = $("#synt").offset().top - 80;
+            var lex = $("#lex").offset().top - 80;
+            var misc = $("#misc").offset().top - 80;
 
-        if ($(window).width() < 769) {
-            $(window).scroll(function() {
-                var winTop = $(window).scrollTop();
-                if(winTop >= content && winTop <= lex){
-                    $(".secondary-menu a.active").removeClass("active");
-                    $('#acon').addClass("active");
-                } else if(winTop >= lex && winTop <= synt){
-                    $(".secondary-menu a.active").removeClass("active");
-                    $('#alex').addClass("active");
-                } else if(winTop >= synt && winTop <= misc){
-                    $(".secondary-menu a.active").removeClass("active");
-                    $('#asynt').addClass("active");
-                }  else if(winTop >= misc){
-                    $(".secondary-menu a.active").removeClass("active");
-                    $('#amisc').addClass("active");
-                }
-            });
-        };
+            if ($(window).width() < 769) {
+                $(window).scroll(function() {
+                    var winTop = $(window).scrollTop();
+                    if(winTop >= content && winTop <= lex){
+                        $(".secondary-menu a.active").removeClass("active");
+                        $('#acon').addClass("active");
+                    } else if(winTop >= lex && winTop <= synt){
+                        $(".secondary-menu a.active").removeClass("active");
+                        $('#alex').addClass("active");
+                    } else if(winTop >= synt && winTop <= misc){
+                        $(".secondary-menu a.active").removeClass("active");
+                        $('#asynt').addClass("active");
+                    }  else if(winTop >= misc){
+                        $(".secondary-menu a.active").removeClass("active");
+                        $('#amisc').addClass("active");
+                    }
+                });
+            }
+        }
 
     });
 
