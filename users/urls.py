@@ -1,13 +1,10 @@
 from django.urls import path
-from django.conf.urls import url
 from . import views
-from django.contrib.auth import views as auth_views
 
+# str, а не slug: Django разрешает в логине точку, @, + и кириллицу,
+# а slug их не пропускал — «Мои ошибки» у таких пользователей отдавали 404.
 urlpatterns = [
     path('register/', views.UserRegisterFormView.as_view(), name="register"),
-    path('<slug:username>/', views.user, name='account'),
-    path('<slug:username>/edit/', views.edit_profile, name='edit'),
-    path('api/user/add-card-current/', views.card_add_current, name='card_add_current'),
-    path('api/user/add-card-finish/', views.card_add_finish, name='card_add_finish'),
-    path('api/user/remove-card/', views.card_remove, name='card_remove'),
+    path('<str:username>/', views.user, name='account'),
+    path('<str:username>/edit/', views.edit_profile, name='edit'),
 ]

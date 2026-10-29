@@ -1,13 +1,14 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import FormView, View
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from .forms import UserForm, UserFormEdit
 from django.core.exceptions import PermissionDenied
 from core.models import Card, Category
+from core.views import card_from_post
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -40,42 +41,43 @@ def edit_profile(request, username):
             user_form.save()
             #messages.success(request, _('Your profile was successfully updated!'))
             return redirect(user, username=username)
-        else:
-            print('ololo')
     else:
         user_form = UserFormEdit(instance=request.user)
-    print(user_form)
     return render(request, 'users/edit.html', {
         'user_form': user_form,
     })
 
 
+# У анонима нет profile — без этой проверки кнопки отдавали 500.
 @csrf_exempt
 def card_add_current(request):
-    card_id = request.POST.get('id')
-    card = get_object_or_404(Card, id=card_id)
+    if not request.user.is_authenticated:
+        return HttpResponseForbidden()
+    card = card_from_post(request)
     request.user.profile.finished.remove(card)
     request.user.profile.current.add(card)
     request.user.profile.save()
 
-    return render(request, 'core/card_detail.html')
+    return HttpResponse(status=204)
 
 @csrf_exempt
 def card_add_finish(request):
-    card_id = request.POST.get('id')
-    card = get_object_or_404(Card, id=card_id)
+    if not request.user.is_authenticated:
+        return HttpResponseForbidden()
+    card = card_from_post(request)
     request.user.profile.current.remove(card)
     request.user.profile.finished.add(card)
     request.user.profile.save()
 
-    return render(request, 'core/card_detail.html')
+    return HttpResponse(status=204)
 
 @csrf_exempt
 def card_remove(request):
-    card_id = request.POST.get('id')
-    card = get_object_or_404(Card, id=card_id)
+    if not request.user.is_authenticated:
+        return HttpResponseForbidden()
+    card = card_from_post(request)
     request.user.profile.current.remove(card)
     request.user.profile.finished.remove(card)
     request.user.profile.save()
 
-    return render(request, 'core/card_detail.html')
+    return HttpResponse(status=204)

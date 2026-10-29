@@ -24,7 +24,7 @@ SECRET_KEY = 'REMOVED-see-settings_local'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['lapsus.timuroki.ink', '164.90.214.150']
+ALLOWED_HOSTS = ['lapsus.timuroki.ink']
 
 
 # Application definition
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     'core',
     'users',
     'ckeditor',

@@ -1,6 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-from sorl.thumbnail import ImageField, get_thumbnail
+from sorl.thumbnail import ImageField
 
 
 class Example(models.Model):
@@ -45,16 +45,6 @@ class Card(models.Model):
     example = RichTextField('Дополнительные примеры (потренируйтесь на них)', blank = True)
     published = models.BooleanField('Опубликован', default=False)
     related = models.ManyToManyField('Card', through=Relationship)
-
-
-    def image_tag(self):
-        if self.image:
-            return u'<img src="%s%s" />' % (settings.MEDIA_URL,
-                                            get_thumbnail(self.image, '90x90'))
-        else:
-            return 'без картинки'
-    image_tag.short_description = 'картинка'
-    image_tag.allow_tags = True
 
 
     class Meta:
