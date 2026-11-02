@@ -5,7 +5,7 @@
             {% if card.image %}
             <div class="image-wrapper">
                 <div class="row{% if card in user.profile.finished.all %} exiled large{% endif %}">
-                    <img class="mx-auto" src="{{ card.image.url }}"> 
+                    <img class="mx-auto" src="{{ card.image.url }}" alt="{{ card.title }}"> 
                 </div>
                 {% endif %}
                 {% if user.is_authenticated %}
@@ -26,7 +26,7 @@
                 {% endif %}
                 <div class="mt-3 buttons-net align-center">
                     <a id="fb_s"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <script>document.write(VK.Share.button(window.location.href, {type: "custom", text: "<i class='fa fa-vk' aria-hidden='true'></i>"}));</script>
+                    <a href="https://vk.com/share.php?url={% filter urlencode:"" %}{{ request.scheme }}://{{ request.get_host }}{{ request.path|iriencode }}{% endfilter %}" target="_blank" rel="noopener" aria-label="Поделиться во ВКонтакте"><i class="fa fa-vk" aria-hidden="true"></i></a>
                     <a id="tw_s"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 </div>
             </div>
@@ -79,7 +79,7 @@
             <div class="promo">
                 <div class="row">
                     <div class="col-2">
-                        <img class="promo-image" src="https://lapsus.timuroki.ink/media/img/core/core_3.png">
+                        <img class="promo-image" src="https://lapsus.timuroki.ink/media/img/core/core_3.png" alt="" loading="lazy" decoding="async">
                     </div>
                     <div class="col-10">
                         <div class="promo-block">
@@ -115,7 +115,7 @@
                             <div class="w-33">
                                 {% if related.image %}
                                 <a href="{% url 'card_detail' slug=related.slug %}">
-                                    <img class="mt-3" src="{{ related.image.url }}"> {% endif %}
+                                    <img class="mt-3" src="{{ related.image.url }}" alt="{{ related.title }}" loading="lazy" decoding="async"> {% endif %}
                                 </a>
                             </div>
                         </div>

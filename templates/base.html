@@ -25,25 +25,25 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/62815396" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Cormorant:400i,600i|Montserrat:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css?v=20261028">
     <link rel="stylesheet" href="/static/assets/libs/font-awesome/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="/static/assets/js/common.js?v=20261028-2"></script>
-    <script type="text/javascript" src="https://vk.com/js/api/share.js?95" charset="windows-1251"></script>
+    <script defer src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script defer src="/static/assets/js/common.js?v=20261028-2"></script>
     <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
-    <link rel="canonical" href="{{ request.build_absolute_uri }}"/>
+    <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path|iriencode }}"/>
     <meta charset="utf-8">
     <meta name="robots" content="all" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, shrink-to-fit=no">
     <title>{% if request.path == "/" %}Ошибкариум{% else %}{% if card.seo_title %}{{ card.seo_title }} - Ошибкариум{% elif page.seo_title %}{{ page.seo_title }} - Ошибкариум{% else %}Ошибкариум{% endif %}{% endif %}</title>
     <meta name="description" content="{% if card.seo_desc %}{{ card.seo_desc }}{% elif page.seo_desc %}{{ page.seo_desc }}{% endif %}" />
-    <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+    <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path|iriencode }}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{% if request.path == "/" %}Ошибкариум{% else %}{% if card.title %}{{ card.title }} - Ошибкариум{% elif page.title %}{{ page.title }} - Ошибкариум{% endif %}{% endif %}" />
     <meta property="og:description" content="{% if request.path == "/" %}Путеводитель по текстовым ошибкам. Для авторов и редакторов.{% else %}{% if card.excerpt %}{{ card.excerpt }}{% elif page.content %}{{ page.content|striptags }}{% endif %}{% endif %}" />
-    <meta property="og:image" content="{% if request.path == "/" %}https://lapsus.timuroki.ink/media/img/core/background.png{% else %}{% if card.image %}{{ request.scheme }}://{{ request.get_host }}{{ card.image.url }}{% endif %}{% endif %}" />
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% if card.image %}{{ card.image.url }}{% else %}/media/img/core/background.png{% endif %}" />
 </head>
 
 <body>

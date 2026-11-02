@@ -2,7 +2,7 @@
 <div class="bg">
     <div class="container-fluid">
         <div class="head-image">
-            <img src="https://lapsus.timuroki.ink/media/img/core/cover_pad.png">
+            <img src="https://lapsus.timuroki.ink/media/img/core/cover_pad.png" alt="Ошибкариум — справочник ошибок в текстах">
         </div>
         <div class="container header">
             <div class="row">
@@ -69,7 +69,7 @@
                     <div class="w-33{% if card in user.profile.finished.all %} exiled{% endif %}">
                         {% if card.image %}
                         <a href="{% url 'card_detail' slug=card.slug %}">
-                            <img class="mt-3" src="{{ card.image.url }}"> {% endif %}
+                            <img class="mt-3" src="{{ card.image.url }}" alt="{{ card.title }}" loading="lazy" decoding="async"> {% endif %}
                         </a>
                     </div>
                 </div>
