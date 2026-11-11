@@ -26,6 +26,12 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['lapsus.timuroki.ink']
 
+# HTTPS терминирует nginx и передаёт X-Forwarded-Proto
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
 
 # Application definition
 
